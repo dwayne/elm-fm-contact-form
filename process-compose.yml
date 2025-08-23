@@ -1,0 +1,4 @@
+processes:
+  workshop:
+    description: Start the development server for the frontend workshop
+    command: workshop start

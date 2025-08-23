@@ -1,0 +1,7 @@
+#!/usr/bin/env nu
+
+def "main start" [] {
+  cd $"($env.project)/workshop"; pnpm dev
+}
+
+def main [] {}

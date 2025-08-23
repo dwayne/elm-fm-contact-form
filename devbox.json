@@ -1,6 +1,7 @@
 {
   "packages": [
     "nodejs@22",
+    "nushell@latest",
     "pnpm@latest"
   ],
   "env": {
@@ -9,7 +10,6 @@
   },
   "shell": {
     "init_hook": [
-      "[[ -f $project/init.sh ]] && . $project/init.sh",
       "[[ -d $project/workshop ]] && cd $project/workshop && pnpm install --silent"
     ]
   }
