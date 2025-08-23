@@ -1,0 +1,8 @@
+---
+const { name, color } = Astro.props;
+---
+<div class="swatch">
+  <div class="swatch__card" data-bg-color={color}></div>
+  <h3 class="swatch__name">{name}</h3>
+</div>
+
