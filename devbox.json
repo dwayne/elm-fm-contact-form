@@ -1,7 +1,6 @@
 {
   "packages": [
     "nodejs@22",
-    "nushell@latest",
     "pnpm@latest"
   ],
   "env": {
@@ -10,7 +9,10 @@
   },
   "shell": {
     "init_hook": [
-      "[[ -d $project/workshop ]] && cd $project/workshop && pnpm install --silent"
+      "[[ ! -d $project/workshop/node_modules ]] && cd $project/workshop && pnpm install --silent",
+      "alias wd='workshop dev'",
+      "alias wb='workshop build'",
+      "alias wp='workshop preview'"
     ]
   }
 }

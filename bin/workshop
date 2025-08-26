@@ -1,7 +1,32 @@
-#!/usr/bin/env nu
+#!/usr/bin/env bash
+#
+# Usage: workshop (dev|build|preview)
+#
 
-def "main start" [] {
-  cd $"($env.project)/workshop"; pnpm dev
-}
+set -euo pipefail
 
-def main [] {}
+project="${project:?}"
+cmd="${1:-}"
+
+# MAIN
+
+cd "$project/workshop"
+
+case "$cmd" in
+  dev)
+    pnpm dev
+    ;;
+
+  build)
+    pnpm build
+    ;;
+
+  preview)
+    pnpm preview
+    ;;
+
+  *)
+    printf "Unknown command: \"$cmd\"\n"
+    exit 1
+    ;;
+esac
