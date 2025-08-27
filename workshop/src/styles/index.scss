@@ -1,1 +1,7 @@
+@use "fonts";
 @use "blocks/swatch";
+
+body {
+  font-family: Karla, sans-serif;
+  font-weight: 400;
+}
