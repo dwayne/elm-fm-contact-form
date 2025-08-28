@@ -3,9 +3,11 @@
 );
 
 @use "fonts";
+@use "typography";
+@use "colors";
 @use "blocks/swatch";
 
 body {
-  font-family: Karla, sans-serif;
-  font-weight: 400;
+  @include typography.body-m;
+  color: colors.$grey-900;
 }
