@@ -1,3 +1,7 @@
+@use "config" with (
+  $base: $base
+);
+
 @use "fonts";
 @use "blocks/swatch";
 

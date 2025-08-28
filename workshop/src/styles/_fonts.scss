@@ -1,6 +1,9 @@
+@use "config";
+@use "lib/path";
+
 @font-face {
   font-family: Karla;
-  src: url("/fonts/Karla-VariableFont_wght.ttf") format("truetype");
+  src: url(path.join(config.$base, "/fonts/Karla-VariableFont_wght.ttf")) format("truetype");
   font-weight: 200 800;
   font-style: normal;
   font-display: swap;

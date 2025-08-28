@@ -1,0 +1,25 @@
+@use "sass:string";
+
+@function join($base, $path) {
+  $has-trailing-slash: string.slice($base, -1) == "/";
+  $has-leading-slash: string.slice($path, 1, 1) == "/";
+
+  @if $has-trailing-slash and $has-leading-slash {
+    @return $base + string.slice($path, 2);
+  } @else if not $has-trailing-slash and not $has-leading-slash {
+    @return $base + "/" + $path;
+  } @else {
+    @return $base + $path;
+  }
+}
+
+// Examples:
+//
+// @debug join("", "");
+// @debug join("", "/");
+// @debug join("/", "");
+// @debug join("/", "/");
+// @debug join("x", "y");
+// @debug join("x", "/y");
+// @debug join("x/", "y");
+// @debug join("x/", "/y");
