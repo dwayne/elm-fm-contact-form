@@ -6,6 +6,7 @@ import CheckboxField from "@/components/CheckboxField.astro";
 import Radio from "@/components/Radio.astro";
 import RadioField from "@/components/RadioField.astro";
 import Swatch from "@/components/Swatch.astro";
+import TextField from "@/components/TextField.astro";
 import TextInput from "@/components/TextInput.astro";
 ---
 <!DOCTYPE html>
@@ -18,6 +19,11 @@ import TextInput from "@/components/TextInput.astro";
   </head>
   <body>
     <h1>Contact form</h1>
+
+    <h2>Text Field</h2>
+
+    <p><TextField id="tf1" /></p>
+    <p><TextField id="tf2" error="error text" /></p>
 
     <h2>Checkbox Field</h2>
 

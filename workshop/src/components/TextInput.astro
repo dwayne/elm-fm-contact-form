@@ -1,9 +1,10 @@
 ---
-const { isDirty = false, isValid = false } = Astro.props;
+const { id, isDirty = false, isValid = false } = Astro.props;
 ---
 <input
   class="input"
   type="text"
+  id={id ?? undefined}
   data-state={isDirty ? "dirty" : "clean"}
   data-validity={isValid ? "valid" : "invalid"}
 />

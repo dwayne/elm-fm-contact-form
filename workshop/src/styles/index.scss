@@ -10,6 +10,7 @@
 @use "blocks/input";
 @use "blocks/radio-field";
 @use "blocks/swatch";
+@use "blocks/text-field";
 
 .required {
   color: colors.$green-600;

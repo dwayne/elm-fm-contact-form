@@ -1,0 +1,20 @@
+@use "colors";
+@use "spacing" as *;
+
+.text-field {
+  display: flex;
+  flex-direction: column;
+  gap: s(100);
+
+  &__label {
+    color: colors.$grey-900;
+
+    cursor: pointer;
+  }
+
+  &:has(.input[data-state="dirty"][data-validity="invalid"]) {
+    .text-field__error {
+      color: colors.$red;
+    }
+  }
+}
