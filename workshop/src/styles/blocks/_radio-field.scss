@@ -15,9 +15,10 @@
 
   padding: s(150) s(300);
 
-  background-color: colors.$white;
-
   cursor: pointer;
+
+  color: colors.$grey-900;
+  background-color: colors.$white;
 
   @include typography.body-m;
 

@@ -1,5 +1,6 @@
 @use "colors";
 @use "spacing" as *;
+@use "typography";
 
 .text-field {
   display: flex;
@@ -8,6 +9,8 @@
 
   &__label {
     color: colors.$grey-900;
+
+    @include typography.body-s;
 
     cursor: pointer;
   }

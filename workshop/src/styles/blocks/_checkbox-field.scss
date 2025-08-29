@@ -9,5 +9,7 @@
 
   cursor: pointer;
 
+  color: colors.$grey-900;
+
   @include typography.body-s;
 }

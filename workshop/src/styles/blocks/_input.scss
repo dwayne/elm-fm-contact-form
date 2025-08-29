@@ -1,5 +1,6 @@
 @use "colors";
 @use "spacing" as *;
+@use "typography";
 
 .input[type="text"] {
   appearance: none;
@@ -14,6 +15,8 @@
 
   background-color: colors.$white;
   color: colors.$grey-900;
+
+  @include typography.body-m;
 
   &:hover, &:focus-visible {
     outline: 1px solid colors.$green-600;
