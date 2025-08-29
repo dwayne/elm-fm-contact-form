@@ -1,13 +1,26 @@
-.input[type="radio"] {
+.input[type="checkbox"], .input[type="radio"] {
   appearance: none;
+  margin: 0;
+  padding: 0;
   cursor: pointer;
 
   width: 24px;
   height: 24px;
 
-  background-image: url("assets/radio-unselected.svg");
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.input[type="checkbox"] {
+  background-image: url("assets/checkbox-unselected.svg");
+
+  &:checked {
+    background-image: url("assets/checkbox-selected.svg");
+  }
+}
+
+.input[type="radio"] {
+  background-image: url("assets/radio-unselected.svg");
 
   &:checked {
     background-image: url("assets/radio-selected.svg");

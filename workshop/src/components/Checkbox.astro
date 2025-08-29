@@ -1,0 +1,8 @@
+---
+const { isChecked = false } = Astro.props;
+---
+<input
+  class="input"
+  type="checkbox"
+  checked={isChecked || undefined}
+/>
