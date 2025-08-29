@@ -1,0 +1,33 @@
+@use "colors";
+@use "spacing" as *;
+
+.radio-field {
+  display: flex;
+  align-items: center;
+  gap: s(150);
+
+  box-sizing: border-box;
+  width: 100%;
+
+  border: 1px solid colors.$grey-500;
+  border-radius: 8px;
+
+  padding: s(150) s(300);
+
+  background-color: colors.$white;
+
+  cursor: pointer;
+
+  &:hover {
+    border-color: colors.$green-600;
+  }
+
+  &:has(.input[type="radio"]:checked) {
+    border-color: colors.$green-600;
+    background-color: colors.$green-200;
+
+    &:hover {
+      background-color: colors.$white;
+    }
+  }
+}
