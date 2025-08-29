@@ -1,0 +1,35 @@
+@use "colors";
+@use "spacing" as *;
+@use "typography";
+
+.toast {
+  display: flex;
+  flex-direction: column;
+  gap: s(100);
+
+  box-sizing: border-box;
+  max-width: 450px;
+
+  border-radius: s(150);
+  padding: s(300);
+
+  background-color: colors.$grey-900;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: s(100);
+  }
+
+  &__title {
+    color: colors.$white;
+
+    @include typography.body-m-bold;
+  }
+
+  &__body {
+    color: colors.$green-200;
+
+    @include typography.body-s;
+  }
+}

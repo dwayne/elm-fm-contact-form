@@ -12,6 +12,7 @@
 @use "blocks/radio-field";
 @use "blocks/swatch";
 @use "blocks/text-field";
+@use "blocks/toast";
 
 .required {
   color: colors.$green-600;

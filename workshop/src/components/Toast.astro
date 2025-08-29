@@ -1,0 +1,12 @@
+---
+import Icon from "@/components/Icon.astro";
+
+const { title } = Astro.props;
+---
+<div class="toast">
+  <div class="toast__header">
+    <Icon type="check" />
+    <span class="toast__title">{title}</span>
+  </div>
+  <div class="toast__body"><slot></slot></div>
+</div>
