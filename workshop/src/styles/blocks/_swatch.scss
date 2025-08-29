@@ -2,10 +2,11 @@
 
 .swatch {
   &__card {
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+
     width: 352px;
     height: 125px;
-    border-radius: 10px;
-    border: 1px solid #d3d3d3;
 
     @each $name, $value in colors.$all {
       &[data-bg-color=#{$name}] {
