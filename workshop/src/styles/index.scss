@@ -6,9 +6,14 @@
 @use "typography";
 @use "colors";
 @use "blocks/button";
+@use "blocks/checkbox-field";
 @use "blocks/input";
 @use "blocks/radio-field";
 @use "blocks/swatch";
+
+.required {
+  color: colors.$green-600;
+}
 
 body {
   @include typography.body-m;

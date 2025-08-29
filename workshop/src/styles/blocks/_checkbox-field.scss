@@ -1,0 +1,13 @@
+@use "colors";
+@use "spacing" as *;
+@use "typography";
+
+.checkbox-field {
+  display: flex;
+  align-items: center;
+  gap: s(200);
+
+  cursor: pointer;
+
+  @include typography.body-s;
+}
