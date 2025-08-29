@@ -1,0 +1,12 @@
+.icon {
+  display: flex;
+  width: 24px;
+  height: 24px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &[data-type="check"] {
+    background-image: url("assets/icon-check.svg");
+  }
+}
