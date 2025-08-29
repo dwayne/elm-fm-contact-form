@@ -1,3 +1,36 @@
+@use "colors";
+@use "spacing" as *;
+
+.input[type="text"] {
+  appearance: none;
+  margin: 0;
+
+  border-radius: 8px;
+  border: 1px solid colors.$grey-500;
+  padding: s(150) s(300);
+
+  background-color: colors.$white;
+  color: colors.$grey-900;
+
+  &[data-state="dirty"][data-validity="valid"] {
+    border-color: colors.$green-600;
+  }
+
+  &[data-state="dirty"][data-validity="invalid"] {
+    border-color: colors.$red;
+  }
+
+  &:hover, &:focus-visible {
+    outline: 1px solid colors.$green-600;
+    outline-offset: -1px;
+  }
+
+  &[data-state="dirty"][data-validity="invalid"]:hover,
+  &[data-state="dirty"][data-validity="invalid"]:focus-visible {
+    outline-color: colors.$red;
+  }
+}
+
 .input[type="checkbox"], .input[type="radio"] {
   appearance: none;
   margin: 0;

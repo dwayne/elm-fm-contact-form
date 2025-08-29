@@ -4,6 +4,7 @@ import Button from "@/components/Button.astro";
 import Checkbox from "@/components/Checkbox.astro";
 import Radio from "@/components/Radio.astro";
 import Swatch from "@/components/Swatch.astro";
+import TextInput from "@/components/TextInput.astro";
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +16,13 @@ import Swatch from "@/components/Swatch.astro";
   </head>
   <body>
     <h1>Contact form</h1>
+
+    <h2>Text Input</h2>
+
+    <p><TextInput /></p>
+    <p><TextInput isDirty={true} /></p>
+    <p><TextInput isValid={true} /></p>
+    <p><TextInput isDirty={true} isValid={true} /></p>
 
     <h2>Checkbox</h2>
 

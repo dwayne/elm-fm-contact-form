@@ -1,0 +1,9 @@
+---
+const { isDirty = false, isValid = false } = Astro.props;
+---
+<input
+  class="input"
+  type="text"
+  data-state={isDirty ? "dirty" : "clean"}
+  data-validity={isValid ? "valid" : "invalid"}
+/>
