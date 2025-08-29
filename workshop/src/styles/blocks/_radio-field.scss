@@ -1,5 +1,6 @@
 @use "colors";
 @use "spacing" as *;
+@use "typography";
 
 .radio-field {
   display: flex;
@@ -17,6 +18,8 @@
   background-color: colors.$white;
 
   cursor: pointer;
+
+  @include typography.body-m;
 
   &:hover {
     border-color: colors.$green-600;
