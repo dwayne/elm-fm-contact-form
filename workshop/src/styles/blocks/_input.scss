@@ -1,0 +1,15 @@
+.input[type="radio"] {
+  appearance: none;
+  cursor: pointer;
+
+  width: 24px;
+  height: 24px;
+
+  background-image: url("assets/radio-unselected.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &:checked {
+    background-image: url("assets/radio-selected.svg");
+  }
+}
