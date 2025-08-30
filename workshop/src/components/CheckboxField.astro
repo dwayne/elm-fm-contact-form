@@ -1,9 +1,9 @@
 ---
 import Checkbox from "@/components/Checkbox.astro";
 
-const { isChecked = false } = Astro.props;
+const { isChecked = false, text = "Text" } = Astro.props;
 ---
 <label class="checkbox-field">
   <Checkbox isChecked={isChecked} />
-  <span>Text <span class="required">*</span></span>
+  <span>{text} <span class="required">*</span></span>
 </label>

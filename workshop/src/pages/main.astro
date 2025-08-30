@@ -1,5 +1,9 @@
 ---
 import "@/styles/main.scss";
+
+import Button from "@/components/Button.astro";
+import CheckboxField from "@/components/CheckboxField.astro";
+import TextField from "@/components/TextField.astro";
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -10,5 +14,22 @@ import "@/styles/main.scss";
     <title>Main Page | Contact form | Frontend Workshop</title>
   </head>
   <body>
+    <form class="form">
+      <div class="form__section">
+        <h1 class="form__title">Contact Us</h1>
+
+        <div class="form__fields">
+          <TextField title="First Name" />
+          <TextField title="Last Name" />
+          <TextField title="Email Address" />
+        </div>
+      </div>
+      <div class="form__section">
+        <CheckboxField text="I consent to being contacted by the team" />
+      </div>
+      <div class="form__section">
+        <Button>Submit</Button>
+      </div>
+    </form>
   </body>
 </html>
