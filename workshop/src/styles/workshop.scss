@@ -1,0 +1,32 @@
+@use "config" with (
+  $base: $base
+);
+
+@use "fonts";
+@use "base";
+
+@use "blocks/button";
+@use "blocks/checkbox-field";
+@use "blocks/icon";
+@use "blocks/input";
+@use "blocks/radio-field";
+@use "blocks/swatch";
+@use "blocks/text-field";
+@use "blocks/toast";
+
+@use "colors";
+@use "spacing" as *;
+@use "typography";
+
+.p-100 {
+  padding: s(100);
+}
+
+.bg-grey-900 {
+  background-color: colors.$grey-900;
+}
+
+body {
+  color: colors.$grey-900;
+  @include typography.body-m;
+}

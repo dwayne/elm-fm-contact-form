@@ -3,22 +3,26 @@
 );
 
 @use "fonts";
-@use "typography";
-@use "colors";
+@use "base";
+
 @use "blocks/button";
 @use "blocks/checkbox-field";
 @use "blocks/icon";
 @use "blocks/input";
 @use "blocks/radio-field";
-@use "blocks/swatch";
 @use "blocks/text-field";
 @use "blocks/toast";
 
-.required {
-  color: colors.$green-600;
-}
+@use "colors";
+@use "spacing" as *;
+@use "typography";
 
 body {
-  @include typography.body-m;
+  margin: 0;
+  padding: s(400) s(200);
+
+  background-color: colors.$green-200;
   color: colors.$grey-900;
+
+  @include typography.body-m;
 }
