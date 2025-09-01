@@ -1,12 +1,7 @@
 @use "colors";
-@use "spacing" as *;
 @use "typography";
 
-.checkbox-field {
-  display: flex;
-  align-items: center;
-  gap: s(200);
-
+.label {
   color: colors.$grey-900;
   @include typography.body-s;
   cursor: pointer;

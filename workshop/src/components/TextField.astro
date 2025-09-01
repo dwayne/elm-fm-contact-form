@@ -4,7 +4,7 @@ import TextInput from "@/components/TextInput.astro";
 const { id, error, title = "Title" } = Astro.props;
 ---
 <div class="text-field">
-  <label class="text-field__label" for={id ?? undefined}>{title} <span class="required">*</span></label>
+  <label class="text-field__label" for={id ?? undefined}>{title}&nbsp;<span class="required">*</span></label>
   <TextInput
     id={id ?? undefined}
     isDirty={error ? true : false}
