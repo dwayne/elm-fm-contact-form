@@ -7,7 +7,8 @@ import CheckboxField from "@/components/CheckboxField.astro";
 import Icon from "@/components/Icon.astro";
 import Label from "@/components/Label.astro";
 import Radio from "@/components/Radio.astro";
-import RadioField from "@/components/RadioField.astro";
+import RadioButton from "@/components/RadioButton.astro";
+import RadioGroup from "@/components/RadioGroup.astro";
 import Swatch from "@/components/Swatch.astro";
 import TextField from "@/components/TextField.astro";
 import TextInput from "@/components/TextInput.astro";
@@ -44,10 +45,17 @@ import Toast from "@/components/Toast.astro";
     <p><CheckboxField /></p>
     <p><CheckboxField isChecked={true} /></p>
 
-    <h2>Radio Field</h2>
+    <h2>Radio Group</h2>
 
-    <p><RadioField /></p>
-    <p><RadioField isChecked={true} /></p>
+    <RadioGroup>
+      <RadioButton name="group1" text="General Enquiry" />
+      <RadioButton name="group1" text="Support Request" />
+    </RadioGroup>
+
+    <h2>Radio Button</h2>
+
+    <p><RadioButton /></p>
+    <p><RadioButton isChecked={true} /></p>
 
     <h2>Label</h2>
 

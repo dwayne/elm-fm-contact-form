@@ -2,15 +2,16 @@
 @use "spacing" as *;
 @use "typography";
 
-.radio-field {
+.radio-button {
   display: flex;
   align-items: center;
   gap: s(150);
 
+  min-width: fit-content;
   width: 100%;
 
   border: 1px solid colors.$grey-500;
-  border-radius: 8px;
+  border-radius: s(100);
 
   padding: s(150) s(300);
 

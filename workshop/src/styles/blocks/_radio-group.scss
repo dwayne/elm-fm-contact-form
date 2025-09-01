@@ -1,0 +1,15 @@
+@use "spacing" as *;
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: s(200);
+
+  min-width: fit-content;
+}
+
+@media (min-width: 768px) {
+  .radio-group {
+    flex-direction: row;
+  }
+}
