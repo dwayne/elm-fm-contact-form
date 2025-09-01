@@ -1,8 +1,15 @@
 @use "colors";
+@use "spacing" as *;
 @use "typography";
 
 .label {
+  display: flex;
+  gap: s(100);
+
+  white-space: nowrap;
+  min-width: max-content;
+  cursor: pointer;
+
   color: colors.$grey-900;
   @include typography.body-s;
-  cursor: pointer;
 }
