@@ -1,0 +1,8 @@
+@use "mixins";
+
+.textarea {
+  @include mixins.text-control;
+
+  min-height: 105px;
+  resize: vertical;
+}

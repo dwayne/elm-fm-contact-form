@@ -1,0 +1,36 @@
+@use "colors";
+@use "spacing" as *;
+@use "typography";
+
+@mixin text-control {
+  appearance: none;
+  margin: 0;
+
+  width: 100%;
+
+  border: 1px solid colors.$grey-500;
+  border-radius: 8px;
+  padding: s(150) s(300);
+
+  background-color: colors.$white;
+  color: colors.$grey-900;
+
+  @include typography.body-m;
+
+  &:hover, &:focus-visible {
+    outline: 1px solid colors.$green-600;
+    outline-offset: -1px;
+  }
+
+  &[data-state="dirty"][data-validity="valid"] {
+    border-color: colors.$green-600;
+  }
+
+  &[data-state="dirty"][data-validity="invalid"] {
+    border-color: colors.$red;
+
+    &:hover, &:focus-visible {
+      outline-color: colors.$red;
+    }
+  }
+}
