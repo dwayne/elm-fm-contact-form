@@ -8,11 +8,12 @@
 @use "blocks/button";
 @use "blocks/checkbox-field";
 @use "blocks/field";
+@use "blocks/form";
+@use "blocks/group";
 @use "blocks/icon";
 @use "blocks/input";
 @use "blocks/label";
 @use "blocks/radio-button";
-@use "blocks/radio-group";
 @use "blocks/textarea";
 @use "blocks/toast";
 
@@ -28,33 +29,4 @@ body {
   color: colors.$grey-900;
 
   @include typography.body-m;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: s(500);
-
-  border-radius: s(200);
-  padding: s(300);
-
-  background-color: colors.$white;
-
-  &__section {
-    display: flex;
-    flex-direction: column;
-    gap: s(400);
-  }
-
-  &__title {
-    margin: 0;
-
-    @include typography.heading;
-  }
-
-  &__fields {
-    display: flex;
-    flex-direction: column;
-    gap: s(300);
-  }
 }

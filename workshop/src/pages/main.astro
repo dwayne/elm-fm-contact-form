@@ -3,7 +3,11 @@ import "@/styles/main.scss";
 
 import Button from "@/components/Button.astro";
 import CheckboxField from "@/components/CheckboxField.astro";
-import TextField from "@/components/TextField.astro";
+import Field from "@/components/Field.astro";
+import Group from "@/components/Group.astro";
+import QueryType from "@/components/QueryType.astro";
+import Textarea from "@/components/Textarea.astro";
+import TextInput from "@/components/TextInput.astro";
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -19,9 +23,13 @@ import TextField from "@/components/TextField.astro";
         <h1 class="form__title">Contact Us</h1>
 
         <div class="form__fields">
-          <TextField title="First Name" />
-          <TextField title="Last Name" />
-          <TextField title="Email Address" />
+          <Group>
+            <Field id="first-name" title="First Name" Control={TextInput} controlProps={{ autofocus: true }} />
+            <Field id="last-name" title="Last Name" Control={TextInput} />
+          </Group>
+          <Field id="email" title="Email Address" Control={TextInput} />
+          <Field id="query-type" title="Query Type" Control={QueryType} />
+          <Field id="message" title="Message" Control={Textarea} />
         </div>
       </div>
       <div class="form__section">
