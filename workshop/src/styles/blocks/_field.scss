@@ -1,0 +1,13 @@
+@use "colors";
+@use "spacing" as *;
+@use "typography";
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: s(100);
+
+  &__error {
+    color: colors.$red;
+  }
+}

@@ -1,0 +1,15 @@
+---
+import Label from "@/components/Label.astro";
+
+const { id, Control, controlProps = {}, error, title = "Title", isRequired = true } = Astro.props;
+---
+<div class="field">
+  <Label {...{id, title, isRequired}} />
+  <Control
+    {id}
+    isDirty={error ? true : false}
+    isValid={error ? false : true}
+    {...controlProps}
+  />
+  {error && <div class="field__error">{error}</div>}
+</div>

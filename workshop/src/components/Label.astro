@@ -1,7 +1,7 @@
 ---
 const { id, title = "Title", isRequired = true } = Astro.props;
 ---
-<label class="label" for={id ?? undefined}>
+<label class="label" for={id}>
   {title}
   {isRequired && <span class="required">*</span>}
 </label>
