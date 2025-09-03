@@ -3,7 +3,7 @@ import Radio from "@/components/Radio.astro";
 
 const { name, isChecked = false, text = "Text" } = Astro.props;
 ---
-<label class="radio-button">
+<label class="labelled-radio">
   <Radio name={name} isChecked={isChecked} />
   {text}
 </label>

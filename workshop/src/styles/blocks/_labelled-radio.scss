@@ -2,7 +2,7 @@
 @use "spacing" as *;
 @use "typography";
 
-.radio-button {
+.labelled-radio {
   display: flex;
   align-items: center;
   gap: s(150);
