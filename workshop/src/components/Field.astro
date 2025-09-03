@@ -1,10 +1,10 @@
 ---
 import Label from "@/components/Label.astro";
 
-const { id, Control, controlProps = {}, error, title = "Title", isRequired = true } = Astro.props;
+const { id, title, Control, controlProps = {}, error, isRequired = true } = Astro.props;
 ---
 <div class="field">
-  <Label {...{id, title, isRequired}} />
+  {title && <Label {...{id, title, isRequired}} />}
   <Control
     {id}
     isDirty={error ? true : false}

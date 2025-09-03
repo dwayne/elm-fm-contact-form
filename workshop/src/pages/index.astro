@@ -3,11 +3,11 @@ import "@/styles/workshop.scss";
 
 import Button from "@/components/Button.astro";
 import Checkbox from "@/components/Checkbox.astro";
-import CheckboxField from "@/components/CheckboxField.astro";
 import Field from "@/components/Field.astro";
 import Group from "@/components/Group.astro";
 import Icon from "@/components/Icon.astro";
 import Label from "@/components/Label.astro";
+import LabelledCheckbox from "@/components/LabelledCheckbox.astro";
 import QueryType from "@/components/QueryType.astro";
 import Radio from "@/components/Radio.astro";
 import RadioButton from "@/components/RadioButton.astro";
@@ -65,10 +65,27 @@ import Toast from "@/components/Toast.astro";
       error="error text"
     />
 
-    <h2>Checkbox Field</h2>
+    <Field
+      id="field5"
+      Control={LabelledCheckbox}
+    />
 
-    <p><CheckboxField /></p>
-    <p><CheckboxField isChecked={true} /></p>
+    <Field
+      id="field6"
+      Control={LabelledCheckbox}
+      controlProps={{ isChecked: true }}
+    />
+
+    <Field
+      id="field7"
+      Control={LabelledCheckbox}
+      error="error text"
+    />
+
+    <h2>Labelled Checkbox</h2>
+
+    <p><LabelledCheckbox /></p>
+    <p><LabelledCheckbox isChecked={true} /></p>
 
     <h2>Radio Group</h2>
 

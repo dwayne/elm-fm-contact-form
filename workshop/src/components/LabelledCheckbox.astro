@@ -3,7 +3,7 @@ import Checkbox from "@/components/Checkbox.astro";
 
 const { isChecked = false, text = "Text" } = Astro.props;
 ---
-<label class="checkbox-field">
+<label class="labelled-checkbox">
   <Checkbox isChecked={isChecked} />
   <span>{text}&nbsp;<span class="required">*</span></span>
 </label>

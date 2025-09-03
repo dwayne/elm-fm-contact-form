@@ -2,7 +2,7 @@
 @use "spacing" as *;
 @use "typography";
 
-.checkbox-field {
+.labelled-checkbox {
   display: flex;
   align-items: center;
   gap: s(200);

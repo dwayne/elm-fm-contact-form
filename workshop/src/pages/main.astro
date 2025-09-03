@@ -2,9 +2,9 @@
 import "@/styles/main.scss";
 
 import Button from "@/components/Button.astro";
-import CheckboxField from "@/components/CheckboxField.astro";
 import Field from "@/components/Field.astro";
 import Group from "@/components/Group.astro";
+import LabelledCheckbox from "@/components/LabelledCheckbox.astro";
 import QueryType from "@/components/QueryType.astro";
 import Textarea from "@/components/Textarea.astro";
 import TextInput from "@/components/TextInput.astro";
@@ -33,7 +33,11 @@ import TextInput from "@/components/TextInput.astro";
         </div>
       </div>
       <div class="form__section">
-        <CheckboxField text="I consent to being contacted by the team" />
+        <Field
+          id="consent"
+          Control={LabelledCheckbox}
+          controlProps={{ text: "I consent to being contacted by the team" }}
+        />
       </div>
       <div class="form__section">
         <Button>Submit</Button>
