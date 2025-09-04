@@ -1,1 +1,4 @@
-<textarea class="textarea" {...Astro.props}></textarea>
+---
+const { class: className, ...rest } = Astro.props;
+---
+<textarea class:list={["textarea", className]} {...rest}></textarea>
