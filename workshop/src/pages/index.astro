@@ -101,10 +101,17 @@ import Toast from "@/components/Toast.astro";
 
     <h2>Label</h2>
 
-    <p><Label /></p>
-    <p><Label id="label1" /></p>
-    <p><Label id="label2" title="First Name" /></p>
-    <p><Label id="label3" title="Last Name" isRequired={false} /></p>
+    <h3>Without ID</h3>
+
+    <p><Label title="First Name"/></p>
+
+    <h3>With ID</h3>
+
+    <p><Label id="label1" title="First Name" /></p>
+
+    <h3>Optional</h3>
+
+    <p><Label id="label2" title="Last Name" isRequired={false} /></p>
 
     <h2>Textarea</h2>
 

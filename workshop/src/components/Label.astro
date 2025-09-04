@@ -1,7 +1,7 @@
 ---
-const { id, title = "Title", isRequired = true } = Astro.props;
+const { id, class: className, title, isRequired = true, ...rest } = Astro.props;
 ---
-<label class="label" for={id}>
+<label class:list={["label", className]} for={id} {...rest}>
   {title}
   {isRequired && <span class="required">*</span>}
 </label>
