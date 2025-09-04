@@ -1,8 +1,10 @@
 ---
 import Group from "@/components/Group.astro";
 import LabelledRadio from "@/components/LabelledRadio.astro";
+
+const { name, propsA = {}, propsB = {} } = Astro.props;
 ---
 <Group>
-  <LabelledRadio name="group1" text="General Enquiry" />
-  <LabelledRadio name="group1" text="Support Request" />
+  <LabelledRadio {name} text="General Enquiry" {...propsA} />
+  <LabelledRadio {name} text="Support Request" {...propsB} />
 </Group>

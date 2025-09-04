@@ -39,11 +39,15 @@ import Toast from "@/components/Toast.astro";
 
     <h2>Field</h2>
 
+    <h3>Clean and valid</h3>
+
     <Field
       id="field1"
       title="First Name"
       Control={TextInput}
     />
+
+    <h3>Dirty and invalid</h3>
 
     <Field
       id="field2"
@@ -52,41 +56,59 @@ import Toast from "@/components/Toast.astro";
       error="error text"
     />
 
+    <h3>General</h3>
+
     <Field
       id="field3"
       title="Query Type"
       Control={QueryType}
+      name="group3"
+      propsA={{ checked: true }}
     />
+
+    <h3>Support</h3>
 
     <Field
       id="field4"
       title="Query Type"
       Control={QueryType}
+      name="group4"
+      propsB={{ checked: true }}
+    />
+
+    <h3>Invalid</h3>
+
+    <Field
+      id="field5"
+      title="Query Type"
+      Control={QueryType}
+      name="group5"
       error="error text"
     />
 
     <h3>Unchecked and valid</h3>
 
     <Field
-      id="field5"
+      id="field6"
       Control={LabelledCheckbox}
-      controlProps={{ text: "Text" }}
+      text="Text 1"
     />
 
     <h3>Checked and valid</h3>
 
     <Field
-      id="field6"
+      id="field7"
       Control={LabelledCheckbox}
-      controlProps={{ text: "Text", checked: true }}
+      text="Text 2"
+      checked
     />
 
     <h3>Unchecked and invalid</h3>
 
     <Field
-      id="field7"
+      id="field8"
       Control={LabelledCheckbox}
-      controlProps={{ text: "Text" }}
+      text="Text 3"
       error="error text"
     />
 
