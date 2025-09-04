@@ -1,0 +1,35 @@
+---
+import Button from "@/components/Button.astro";
+import Field from "@/components/Field.astro";
+import Group from "@/components/Group.astro";
+import Input from "@/components/Input.astro";
+import LabelledCheckbox from "@/components/LabelledCheckbox.astro";
+import QueryType from "@/components/QueryType.astro";
+import Textarea from "@/components/Textarea.astro";
+---
+<form class="form">
+  <div class="form__section">
+    <h1 class="form__title">Contact Us</h1>
+
+    <div class="form__fields">
+      <Group>
+        <Field id="first-name" title="First Name" Control={Input} value="John" />
+        <Field id="last-name" title="Last Name" Control={Input} value="Appleseed" />
+      </Group>
+      <Field id="email" title="Email Address" Control={Input} type="email" value="email@example.com" />
+      <Field id="query-type" name="query-type" title="Query Type" Control={QueryType} propsA={{ checked: true }} />
+      <Field id="message" title="Message" Control={Textarea} value="Hello, I would like to know if you're able to build Shopify e-commerce sites. We're starting a business and we're going to use Shopify. But it would be great to work with an agency who specialises in working with it." />
+    </div>
+  </div>
+  <div class="form__section">
+    <Field
+      id="consent"
+      Control={LabelledCheckbox}
+      text="I consent to being contacted by the team"
+      checked
+    />
+  </div>
+  <div class="form__section">
+    <Button type="submit">Submit</Button>
+  </div>
+</form>
