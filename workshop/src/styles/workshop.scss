@@ -4,6 +4,7 @@
 
 @use "fonts";
 @use "base";
+@use "utility";
 
 @use "blocks/button";
 @use "blocks/field";
@@ -18,16 +19,7 @@
 @use "blocks/toast";
 
 @use "colors";
-@use "spacing" as *;
 @use "typography";
-
-.p-100 {
-  padding: s(100);
-}
-
-.bg-grey-900 {
-  background-color: colors.$grey-900;
-}
 
 body {
   color: colors.$grey-900;

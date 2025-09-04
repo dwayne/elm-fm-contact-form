@@ -4,6 +4,7 @@
 
 @use "fonts";
 @use "base";
+@use "utility";
 
 @use "blocks/button";
 @use "blocks/field";
@@ -29,4 +30,10 @@ body {
   color: colors.$grey-900;
 
   @include typography.body-m;
+}
+
+@media (min-width: 768px) {
+  body {
+    padding: s(1600) 0;
+  }
 }

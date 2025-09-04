@@ -2,6 +2,7 @@
 import "@/styles/index.scss";
 
 import EmptyForm from "@/sections/EmptyForm.astro";
+import SuccessToast from "@/sections/SuccessToast.astro";
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -9,9 +10,10 @@ import EmptyForm from "@/sections/EmptyForm.astro";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1" />
 
-    <title>Main Page | Contact form | Frontend Workshop</title>
+    <title>Success State | Contact form | Frontend Workshop</title>
   </head>
   <body>
+    <SuccessToast />
     <EmptyForm />
   </body>
 </html>

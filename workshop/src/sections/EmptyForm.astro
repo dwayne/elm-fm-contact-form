@@ -1,0 +1,34 @@
+---
+import Button from "@/components/Button.astro";
+import Field from "@/components/Field.astro";
+import Group from "@/components/Group.astro";
+import Input from "@/components/Input.astro";
+import LabelledCheckbox from "@/components/LabelledCheckbox.astro";
+import QueryType from "@/components/QueryType.astro";
+import Textarea from "@/components/Textarea.astro";
+---
+<form class="form">
+  <div class="form__section">
+    <h1 class="form__title">Contact Us</h1>
+
+    <div class="form__fields">
+      <Group>
+        <Field id="first-name" title="First Name" Control={Input} autofocus />
+        <Field id="last-name" title="Last Name" Control={Input} />
+      </Group>
+      <Field id="email" title="Email Address" Control={Input} type="email" />
+      <Field id="query-type" name="query-type" title="Query Type" Control={QueryType} />
+      <Field id="message" title="Message" Control={Textarea} />
+    </div>
+  </div>
+  <div class="form__section">
+    <Field
+      id="consent"
+      Control={LabelledCheckbox}
+      text="I consent to being contacted by the team"
+    />
+  </div>
+  <div class="form__section">
+    <Button type="submit">Submit</Button>
+  </div>
+</form>
