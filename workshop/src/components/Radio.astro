@@ -1,9 +1,8 @@
 ---
-const { name, isChecked = false } = Astro.props;
+const { class: className, ...rest } = Astro.props;
 ---
 <input
-  class="input"
+  class:list={["input", className]}
   type="radio"
-  name={name}
-  checked={isChecked || undefined}
+  {...rest}
 />
