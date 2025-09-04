@@ -65,27 +65,35 @@ import Toast from "@/components/Toast.astro";
       error="error text"
     />
 
+    <h3>Unchecked and valid</h3>
+
     <Field
       id="field5"
       Control={LabelledCheckbox}
+      controlProps={{ text: "Text" }}
     />
+
+    <h3>Checked and valid</h3>
 
     <Field
       id="field6"
       Control={LabelledCheckbox}
-      controlProps={{ isChecked: true }}
+      controlProps={{ text: "Text", checked: true }}
     />
+
+    <h3>Unchecked and invalid</h3>
 
     <Field
       id="field7"
       Control={LabelledCheckbox}
+      controlProps={{ text: "Text" }}
       error="error text"
     />
 
     <h2>Labelled Checkbox</h2>
 
-    <p><LabelledCheckbox /></p>
-    <p><LabelledCheckbox isChecked={true} /></p>
+    <p><LabelledCheckbox text="Content 1" /></p>
+    <p><LabelledCheckbox text="Content 2" checked /></p>
 
     <h2>Radio Group</h2>
 
@@ -97,7 +105,7 @@ import Toast from "@/components/Toast.astro";
     <h2>Labelled Radio</h2>
 
     <p><LabelledRadio /></p>
-    <p><LabelledRadio isChecked={true} /></p>
+    <p><LabelledRadio checked /></p>
 
     <h2>Label</h2>
 

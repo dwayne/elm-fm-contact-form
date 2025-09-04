@@ -1,9 +1,9 @@
 ---
 import Radio from "@/components/Radio.astro";
 
-const { name, isChecked = false, text = "Text" } = Astro.props;
+const { labelProps, text = "Text", ...rest } = Astro.props;
 ---
-<label class="labelled-radio">
-  <Radio name={name} isChecked={isChecked} />
+<label class:list={["labelled-radio", labelProps?.class]}>
+  <Radio {...rest} />
   {text}
 </label>

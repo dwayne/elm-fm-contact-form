@@ -17,8 +17,8 @@
 
   cursor: pointer;
 
-  color: colors.$grey-900;
   background-color: colors.$white;
+  color: colors.$grey-900;
 
   @include typography.body-m;
 

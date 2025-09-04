@@ -8,6 +8,8 @@
   gap: s(200);
 
   color: colors.$grey-900;
+
   @include typography.body-s;
+
   cursor: pointer;
 }
