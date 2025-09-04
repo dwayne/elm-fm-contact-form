@@ -1,6 +1,7 @@
 @use "mixins";
 
-.input[type="text"] {
+.input[type="text"],
+.input[type="email"] {
   @include mixins.text-control;
 }
 

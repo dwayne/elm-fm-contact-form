@@ -4,10 +4,10 @@ import "@/styles/main.scss";
 import Button from "@/components/Button.astro";
 import Field from "@/components/Field.astro";
 import Group from "@/components/Group.astro";
+import Input from "@/components/Input.astro";
 import LabelledCheckbox from "@/components/LabelledCheckbox.astro";
 import QueryType from "@/components/QueryType.astro";
 import Textarea from "@/components/Textarea.astro";
-import TextInput from "@/components/TextInput.astro";
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -24,11 +24,11 @@ import TextInput from "@/components/TextInput.astro";
 
         <div class="form__fields">
           <Group>
-            <Field id="first-name" title="First Name" Control={TextInput} controlProps={{ autofocus: true }} />
-            <Field id="last-name" title="Last Name" Control={TextInput} />
+            <Field id="first-name" title="First Name" Control={Input} autofocus />
+            <Field id="last-name" title="Last Name" Control={Input} />
           </Group>
-          <Field id="email" title="Email Address" Control={TextInput} />
-          <Field id="query-type" title="Query Type" Control={QueryType} />
+          <Field id="email" title="Email Address" Control={Input} type="email" />
+          <Field id="query-type" name="query-type" title="Query Type" Control={QueryType} />
           <Field id="message" title="Message" Control={Textarea} />
         </div>
       </div>
@@ -36,7 +36,7 @@ import TextInput from "@/components/TextInput.astro";
         <Field
           id="consent"
           Control={LabelledCheckbox}
-          controlProps={{ text: "I consent to being contacted by the team" }}
+          text="I consent to being contacted by the team"
         />
       </div>
       <div class="form__section">

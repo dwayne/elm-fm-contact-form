@@ -1,9 +1,9 @@
 ---
-const { class: className, isDirty = false, isValid = false, ...rest } = Astro.props;
+const { class: className, type = "text", isDirty = false, isValid = false, ...rest } = Astro.props;
 ---
 <input
   class:list={["input", className]}
-  type="text"
+  {type}
   data-state={isDirty ? "dirty" : "clean"}
   data-validity={isValid ? "valid" : "invalid"}
   {...rest}

@@ -13,7 +13,7 @@ import QueryType from "@/components/QueryType.astro";
 import Radio from "@/components/Radio.astro";
 import Swatch from "@/components/Swatch.astro";
 import Textarea from "@/components/Textarea.astro";
-import TextInput from "@/components/TextInput.astro";
+import Input from "@/components/Input.astro";
 import Toast from "@/components/Toast.astro";
 ---
 <!DOCTYPE html>
@@ -44,7 +44,7 @@ import Toast from "@/components/Toast.astro";
     <Field
       id="field1"
       title="First Name"
-      Control={TextInput}
+      Control={Input}
     />
 
     <h3>Dirty and invalid</h3>
@@ -52,7 +52,7 @@ import Toast from "@/components/Toast.astro";
     <Field
       id="field2"
       title="Last Name"
-      Control={TextInput}
+      Control={Input}
       error="error text"
     />
 
@@ -147,23 +147,27 @@ import Toast from "@/components/Toast.astro";
 
     <p><Textarea /></p>
 
-    <h2>Text Input</h2>
+    <h2>Input</h2>
 
     <h3>Clean and invalid</h3>
 
-    <p><TextInput /></p>
+    <p><Input /></p>
 
     <h3>Dirty and invalid</h3>
 
-    <p><TextInput isDirty={true} /></p>
+    <p><Input isDirty={true} /></p>
 
     <h3>Clean and valid</h3>
 
-    <p><TextInput isValid={true} /></p>
+    <p><Input isValid={true} /></p>
 
     <h3>Dirty and valid</h3>
 
-    <p><TextInput isDirty={true} isValid={true} /></p>
+    <p><Input isDirty={true} isValid={true} /></p>
+
+    <h3>Email</h3>
+
+    <p><Input type="email" /></p>
 
     <h2>Checkbox</h2>
 
