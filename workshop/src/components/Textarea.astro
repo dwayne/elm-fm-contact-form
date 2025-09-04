@@ -1,4 +1,8 @@
 ---
-const { class: className, value, ...rest } = Astro.props;
+const { class: className, value, isDirty = false, isValid = false, ...rest } = Astro.props;
 ---
-<textarea class:list={["textarea", className]} {...rest}>{value}</textarea>
+<textarea
+  class:list={["textarea", className]}
+  data-state={isDirty ? "dirty" : "clean"}
+  data-validity={isValid ? "valid" : "invalid"}
+  {...rest}>{value}</textarea>
