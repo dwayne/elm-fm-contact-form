@@ -1,8 +1,8 @@
 ---
-const { isChecked = false } = Astro.props;
+const { class: className, ...rest } = Astro.props;
 ---
 <input
-  class="input"
+  class:list={["input", className]}
   type="checkbox"
-  checked={isChecked || undefined}
+  {...rest}
 />
