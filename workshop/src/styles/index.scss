@@ -1,6 +1,9 @@
 @use "config" with (
-  $base: $base
+  $base: $base,
+  $mode: $mode
 );
+
+@use "sass:meta";
 
 @use "fonts";
 @use "base";
@@ -22,18 +25,28 @@
 @use "spacing" as *;
 @use "typography";
 
-body {
+@if config.is-workshop() {
+  @include meta.load-css("blocks/swatch");
+}
+
+.body {
+  color: colors.$grey-900;
+  @include typography.body-m;
+}
+
+.body[data-variant="app"] {
   margin: 0;
   padding: s(400) s(200);
 
   background-color: colors.$green-200;
-  color: colors.$grey-900;
 
-  @include typography.body-m;
+  @media (min-width: 768px) {
+    & {
+      padding: s(1600) 0;
+    }
+  }
 }
 
-@media (min-width: 768px) {
-  body {
-    padding: s(1600) 0;
-  }
+.required {
+  color: colors.$green-600;
 }

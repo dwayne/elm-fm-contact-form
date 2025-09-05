@@ -5,6 +5,7 @@ import url from 'node:url';
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 const base = process.env.ASTRO_BASE || '/';
+const styleMode = process.env.STYLE_MODE || 'workshop'; // 'workshop' | 'app'
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,7 +14,7 @@ export default defineConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `$base: "${base}";`,
+          additionalData: `$base: "${base}"; $mode: "${styleMode}";`,
           loadPaths: [
             path.resolve(__dirname, 'src/styles')
           ]

@@ -1,11 +1,5 @@
-@use "colors";
-
 *,
 ::before,
 ::after {
   box-sizing: border-box;
-}
-
-.required {
-  color: colors.$green-600;
 }

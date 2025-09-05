@@ -1,1 +1,6 @@
 $base: "/" !default;
+$mode: "workshop" !default;
+
+@function is-workshop() {
+  @return $mode == "workshop";
+}
