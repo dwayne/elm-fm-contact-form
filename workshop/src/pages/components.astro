@@ -1,5 +1,5 @@
 ---
-import "@/styles/workshop.scss";
+import globalStylesUrl from "@/styles/workshop.scss?url";
 
 import Button from "@/components/Button.astro";
 import Checkbox from "@/components/Checkbox.astro";
@@ -23,6 +23,8 @@ import Toast from "@/components/Toast.astro";
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1" />
 
     <title>Components | Contact form | Frontend Workshop</title>
+
+    <link rel="stylesheet" href={globalStylesUrl} />
   </head>
   <body>
     <h1>Components</h1>

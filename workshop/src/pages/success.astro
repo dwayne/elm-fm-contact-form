@@ -1,5 +1,5 @@
 ---
-import "@/styles/index.scss";
+import globalStylesUrl from "@/styles/index.scss?url";
 
 import EmptyForm from "@/sections/EmptyForm.astro";
 import SuccessToast from "@/sections/SuccessToast.astro";
@@ -11,6 +11,8 @@ import SuccessToast from "@/sections/SuccessToast.astro";
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1" />
 
     <title>Success State | Contact form | Frontend Workshop</title>
+
+    <link rel="stylesheet" href={globalStylesUrl} />
   </head>
   <body>
     <SuccessToast />
