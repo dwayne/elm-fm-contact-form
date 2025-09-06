@@ -1,19 +1,8 @@
 ---
-import globalStylesUrl from "@/styles/index.scss?url";
+import Layout from "@/layouts/Base.astro";
 
 import EmptyForm from "@/sections/EmptyForm.astro";
 ---
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1" />
-
-    <title>Main Page | Contact form | Frontend Workshop</title>
-
-    <link rel="stylesheet" href={globalStylesUrl} />
-  </head>
-  <body class="body" data-variant="app">
-    <EmptyForm />
-  </body>
-</html>
+<Layout title="Main Page" variant="app">
+  <EmptyForm />
+</Layout>

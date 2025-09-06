@@ -1,5 +1,5 @@
 ---
-import globalStylesUrl from "@/styles/index.scss?url";
+import Layout from "@/layouts/Base.astro";
 
 import Button from "@/components/Button.astro";
 import Checkbox from "@/components/Checkbox.astro";
@@ -16,194 +16,183 @@ import Textarea from "@/components/Textarea.astro";
 import Input from "@/components/Input.astro";
 import Toast from "@/components/Toast.astro";
 ---
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1" />
+<Layout title="Components">
+  <h1>Components</h1>
 
-    <title>Components | Contact form | Frontend Workshop</title>
+  <h2>Toast</h2>
 
-    <link rel="stylesheet" href={globalStylesUrl} />
-  </head>
-  <body class="body">
-    <h1>Components</h1>
+  <Toast title="Message Sent!">
+    Thanks for completing the form. We'll be in touch soon!
+  </Toast>
 
-    <h2>Toast</h2>
+  <h2>Icon</h2>
 
-    <Toast title="Message Sent!">
-      Thanks for completing the form. We'll be in touch soon!
-    </Toast>
+  <p class="p-100 bg-grey-900"><Icon type="check" /></p>
 
-    <h2>Icon</h2>
+  <h2>Field</h2>
 
-    <p class="p-100 bg-grey-900"><Icon type="check" /></p>
+  <h3>Clean and valid</h3>
 
-    <h2>Field</h2>
+  <Field
+    id="field1"
+    title="First Name"
+    Control={Input}
+  />
 
-    <h3>Clean and valid</h3>
+  <h3>Dirty and invalid</h3>
 
-    <Field
-      id="field1"
-      title="First Name"
-      Control={Input}
-    />
+  <Field
+    id="field2"
+    title="Last Name"
+    Control={Input}
+    error="error text"
+  />
 
-    <h3>Dirty and invalid</h3>
+  <h3>General</h3>
 
-    <Field
-      id="field2"
-      title="Last Name"
-      Control={Input}
-      error="error text"
-    />
+  <Field
+    id="field3"
+    title="Query Type"
+    Control={QueryType}
+    name="group3"
+    propsA={{ checked: true }}
+  />
 
-    <h3>General</h3>
+  <h3>Support</h3>
 
-    <Field
-      id="field3"
-      title="Query Type"
-      Control={QueryType}
-      name="group3"
-      propsA={{ checked: true }}
-    />
+  <Field
+    id="field4"
+    title="Query Type"
+    Control={QueryType}
+    name="group4"
+    propsB={{ checked: true }}
+  />
 
-    <h3>Support</h3>
+  <h3>Invalid</h3>
 
-    <Field
-      id="field4"
-      title="Query Type"
-      Control={QueryType}
-      name="group4"
-      propsB={{ checked: true }}
-    />
+  <Field
+    id="field5"
+    title="Query Type"
+    Control={QueryType}
+    name="group5"
+    error="error text"
+  />
 
-    <h3>Invalid</h3>
+  <h3>Unchecked and valid</h3>
 
-    <Field
-      id="field5"
-      title="Query Type"
-      Control={QueryType}
-      name="group5"
-      error="error text"
-    />
+  <Field
+    id="field6"
+    Control={LabelledCheckbox}
+    text="Text 1"
+  />
 
-    <h3>Unchecked and valid</h3>
+  <h3>Checked and valid</h3>
 
-    <Field
-      id="field6"
-      Control={LabelledCheckbox}
-      text="Text 1"
-    />
+  <Field
+    id="field7"
+    Control={LabelledCheckbox}
+    text="Text 2"
+    checked
+  />
 
-    <h3>Checked and valid</h3>
+  <h3>Unchecked and invalid</h3>
 
-    <Field
-      id="field7"
-      Control={LabelledCheckbox}
-      text="Text 2"
-      checked
-    />
+  <Field
+    id="field8"
+    Control={LabelledCheckbox}
+    text="Text 3"
+    error="error text"
+  />
 
-    <h3>Unchecked and invalid</h3>
+  <h2>Labelled Checkbox</h2>
 
-    <Field
-      id="field8"
-      Control={LabelledCheckbox}
-      text="Text 3"
-      error="error text"
-    />
+  <p><LabelledCheckbox text="Content 1" /></p>
+  <p><LabelledCheckbox text="Content 2" checked /></p>
 
-    <h2>Labelled Checkbox</h2>
+  <h2>Radio Group</h2>
 
-    <p><LabelledCheckbox text="Content 1" /></p>
-    <p><LabelledCheckbox text="Content 2" checked /></p>
+  <Group>
+    <LabelledRadio name="group1" text="General Enquiry" />
+    <LabelledRadio name="group1" text="Support Request" />
+  </Group>
 
-    <h2>Radio Group</h2>
+  <h2>Labelled Radio</h2>
 
-    <Group>
-      <LabelledRadio name="group1" text="General Enquiry" />
-      <LabelledRadio name="group1" text="Support Request" />
-    </Group>
+  <p><LabelledRadio /></p>
+  <p><LabelledRadio checked /></p>
 
-    <h2>Labelled Radio</h2>
+  <h2>Label</h2>
 
-    <p><LabelledRadio /></p>
-    <p><LabelledRadio checked /></p>
+  <h3>Without ID</h3>
 
-    <h2>Label</h2>
+  <p><Label title="First Name"/></p>
 
-    <h3>Without ID</h3>
+  <h3>With ID</h3>
 
-    <p><Label title="First Name"/></p>
+  <p><Label id="label1" title="First Name" /></p>
 
-    <h3>With ID</h3>
+  <h3>Optional</h3>
 
-    <p><Label id="label1" title="First Name" /></p>
+  <p><Label id="label2" title="Last Name" isRequired={false} /></p>
 
-    <h3>Optional</h3>
+  <h2>Textarea</h2>
 
-    <p><Label id="label2" title="Last Name" isRequired={false} /></p>
+  <p><Textarea /></p>
 
-    <h2>Textarea</h2>
+  <h2>Input</h2>
 
-    <p><Textarea /></p>
+  <h3>Clean and invalid</h3>
 
-    <h2>Input</h2>
+  <p><Input /></p>
 
-    <h3>Clean and invalid</h3>
+  <h3>Dirty and invalid</h3>
 
-    <p><Input /></p>
+  <p><Input isDirty={true} /></p>
 
-    <h3>Dirty and invalid</h3>
+  <h3>Clean and valid</h3>
 
-    <p><Input isDirty={true} /></p>
+  <p><Input isValid={true} /></p>
 
-    <h3>Clean and valid</h3>
+  <h3>Dirty and valid</h3>
 
-    <p><Input isValid={true} /></p>
+  <p><Input isDirty={true} isValid={true} /></p>
 
-    <h3>Dirty and valid</h3>
+  <h3>Email</h3>
 
-    <p><Input isDirty={true} isValid={true} /></p>
+  <p><Input type="email" /></p>
 
-    <h3>Email</h3>
+  <h2>Checkbox</h2>
 
-    <p><Input type="email" /></p>
+  <p><Checkbox /></p>
+  <p><Checkbox checked /></p>
 
-    <h2>Checkbox</h2>
+  <h2>Radio</h2>
 
-    <p><Checkbox /></p>
-    <p><Checkbox checked /></p>
+  <p><Radio /></p>
+  <p><Radio checked /></p>
 
-    <h2>Radio</h2>
+  <p></p>
 
-    <p><Radio /></p>
-    <p><Radio checked /></p>
+  <h2>Button</h2>
 
-    <p></p>
+  <h3>Default</h3>
 
-    <h2>Button</h2>
+  <p><Button>Text</Button></p>
 
-    <h3>Default</h3>
+  <h3>Extra classes</h3>
 
-    <p><Button>Text</Button></p>
+  <p><Button class="another class">Text</Button></p>
 
-    <h3>Extra classes</h3>
+  <h3>Submit</h3>
 
-    <p><Button class="another class">Text</Button></p>
+  <p><Button type="submit">Submit</Button></p>
 
-    <h3>Submit</h3>
+  <h2>Colors</h2>
 
-    <p><Button type="submit">Submit</Button></p>
-
-    <h2>Colors</h2>
-
-    <Swatch name="Grey 900" color="grey-900" />
-    <Swatch name="Grey 500" color="grey-500" />
-    <Swatch name="White" color="white" />
-    <Swatch name="Green 600" color="green-600" />
-    <Swatch name="Green 200" color="green-200" />
-    <Swatch name="Red (Errors)" color="red" />
-  </body>
-</html>
+  <Swatch name="Grey 900" color="grey-900" />
+  <Swatch name="Grey 500" color="grey-500" />
+  <Swatch name="White" color="white" />
+  <Swatch name="Green 600" color="green-600" />
+  <Swatch name="Green 200" color="green-200" />
+  <Swatch name="Red (Errors)" color="red" />
+</Layout>

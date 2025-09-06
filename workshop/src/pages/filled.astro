@@ -1,19 +1,8 @@
 ---
-import globalStylesUrl from "@/styles/index.scss?url";
+import Layout from "@/layouts/Base.astro";
 
 import FilledForm from "@/sections/FilledForm.astro";
 ---
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1" />
-
-    <title>Filled State | Contact form | Frontend Workshop</title>
-
-    <link rel="stylesheet" href={globalStylesUrl} />
-  </head>
-  <body class="body" data-variant="app">
-    <FilledForm />
-  </body>
-</html>
+<Layout title="Filled State" variant="app">
+  <FilledForm />
+</Layout>

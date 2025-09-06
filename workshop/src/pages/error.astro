@@ -1,19 +1,8 @@
 ---
-import globalStylesUrl from "@/styles/index.scss?url";
+import Layout from "@/layouts/Base.astro";
 
 import ErrorForm from "@/sections/ErrorForm.astro";
 ---
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1" />
-
-    <title>Error State | Contact form | Frontend Workshop</title>
-
-    <link rel="stylesheet" href={globalStylesUrl} />
-  </head>
-  <body class="body" data-variant="app">
-    <ErrorForm />
-  </body>
-</html>
+<Layout title="Error State" variant="app">
+  <ErrorForm />
+</Layout>
