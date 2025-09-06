@@ -1,6 +1,6 @@
 @use "sass:map";
 
-$-spacers: (
+$spacers: (
   100: 8px,
   150: 12px,
   200: 16px,
@@ -11,5 +11,5 @@ $-spacers: (
 );
 
 @function s($size) {
-  @return map.get($-spacers, $size);
+  @return map.get($spacers, $size);
 }

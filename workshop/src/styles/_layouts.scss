@@ -1,0 +1,11 @@
+@use "spacing" as *;
+
+@mixin l-column($gap: s(100)) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+.l-column {
+  @include l-column;
+}

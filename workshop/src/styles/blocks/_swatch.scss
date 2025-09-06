@@ -1,11 +1,15 @@
 @use "colors";
+@use "spacing" as *;
+@use "layouts";
 
 .swatch {
+  @include layouts.l-column(s(300));
+
   &__card {
     border: 1px solid #d3d3d3;
     border-radius: 10px;
 
-    width: 352px;
+    width: 350px;
     height: 125px;
 
     @each $name, $value in colors.$all {
@@ -16,6 +20,7 @@
   }
 
   &__name {
+    margin: 0;
     color: colors.$grey-900;
   }
 }
