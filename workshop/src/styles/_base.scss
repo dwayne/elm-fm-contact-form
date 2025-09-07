@@ -1,5 +1,33 @@
-*,
-::before,
-::after {
+@use "colors";
+@use "layouts";
+@use "spaces";
+@use "typography";
+
+//
+// Universal box sizing, see https://css-tricks.com/box-sizing/#aa-universal-box-sizing.
+//
+*, *:before, *:after {
   box-sizing: border-box;
+}
+
+@include colors.generate-custom-properties-and-classes;
+@include spaces.generate-custom-properties-and-classes;
+@include layouts.generate-classes;
+
+.body {
+  color: colors.get-color("grey-900");
+  @include typography.body-m;
+}
+
+.body[data-variant="app"] {
+  margin: 0;
+  padding: spaces.get-space(400) spaces.get-space(200);
+
+  background-color: colors.get-color("green-200");
+
+  @media (min-width: 768px) {
+    & {
+      padding: spaces.get-space(1600) 0;
+    }
+  }
 }

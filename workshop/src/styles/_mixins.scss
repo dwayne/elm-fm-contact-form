@@ -1,5 +1,5 @@
 @use "colors";
-@use "spacing" as *;
+@use "spaces";
 @use "typography";
 
 @mixin text-control {
@@ -9,8 +9,8 @@
   width: 100%;
 
   border: 1px solid colors.get-color("grey-500");
-  border-radius: s(100);
-  padding: s(150) s(300);
+  border-radius: spaces.get-space(100);
+  padding: spaces.get-space(150) spaces.get-space(300);
 
   background-color: colors.get-color("white");
   color: colors.get-color("grey-900");

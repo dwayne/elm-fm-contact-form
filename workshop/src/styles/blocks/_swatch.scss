@@ -1,9 +1,9 @@
 @use "colors";
-@use "spacing" as *;
+@use "spaces";
 @use "layouts";
 
 .swatch {
-  @include layouts.l-column(s(300));
+  @include layouts.l-column(spaces.get-space(300));
 
   &__card {
     border: 1px solid #d3d3d3;

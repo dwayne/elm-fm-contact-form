@@ -1,0 +1,31 @@
+@use "sass:map";
+
+$-spaces: (
+  100: 8px,
+  150: 12px,
+  200: 16px,
+  300: 24px,
+  400: 32px,
+  500: 40px,
+  1600: 128px
+);
+
+@function get-space($size) {
+  @return map.get($-spaces, $size);
+}
+
+@mixin generate-custom-properties-and-classes {
+  :root {
+    @each $key, $value in $-spaces {
+      --space-#{$key}: #{$value};
+    }
+  }
+
+  .p-100 {
+    padding: get-space(100);
+  }
+
+  .p-300 {
+    padding: get-space(300);
+  }
+}

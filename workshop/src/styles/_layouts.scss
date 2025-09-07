@@ -1,11 +1,15 @@
-@use "spacing" as *;
+@use "spaces";
 
-@mixin l-column($gap: s(100)) {
+@mixin l-column($gap: spaces.get-space(100)) {
+  --l-column-gap: #{$gap};
+
   display: flex;
   flex-direction: column;
-  gap: $gap;
+  gap: var(--l-column-gap);
 }
 
-.l-column {
-  @include l-column;
+@mixin generate-classes {
+  .l-column {
+    @include l-column;
+  }
 }

@@ -13,18 +13,20 @@ $-colors: (
   @return map.get($-colors, $name);
 }
 
-:root {
+@mixin generate-custom-properties-and-classes {
+  :root {
+    @each $key, $value in $-colors {
+      --color-#{$key}: #{$value};
+    }
+  }
+
   @each $key, $value in $-colors {
-    --color-#{$key}: #{$value};
-  }
-}
+    .fg-#{$key} {
+      color: #{$value};
+    }
 
-@each $key, $value in $-colors {
-  .fg-#{$key} {
-    color: #{$value};
-  }
-
-  .bg-#{$key} {
-    background-color: #{$value};
+    .bg-#{$key} {
+      background-color: #{$value};
+    }
   }
 }

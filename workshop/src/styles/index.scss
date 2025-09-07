@@ -1,13 +1,12 @@
+@use "sass:meta";
+
 @use "config" with (
   $base: $base,
   $mode: $mode
 );
 
-@use "sass:meta";
-
 @use "fonts";
 @use "base";
-@use "layouts";
 @use "utility";
 
 @use "blocks/button";
@@ -22,38 +21,6 @@
 @use "blocks/textarea";
 @use "blocks/toast";
 
-@use "colors";
-@use "spacing" as *;
-@use "typography";
-
 @if config.is-workshop() {
   @include meta.load-css("blocks/swatch");
-}
-
-:root {
-  @each $key, $value in $spacers {
-    --space-#{$key}: #{$value};
-  }
-}
-
-.body {
-  color: colors.get-color("grey-900");
-  @include typography.body-m;
-}
-
-.body[data-variant="app"] {
-  margin: 0;
-  padding: s(400) s(200);
-
-  background-color: colors.get-color("green-200");
-
-  @media (min-width: 768px) {
-    & {
-      padding: s(1600) 0;
-    }
-  }
-}
-
-.required {
-  color: colors.get-color("green-600");
 }

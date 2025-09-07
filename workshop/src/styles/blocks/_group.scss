@@ -1,9 +1,9 @@
-@use "spacing" as *;
+@use "spaces";
 
 .group {
   display: flex;
   flex-direction: column;
-  gap: s(200);
+  gap: spaces.get-space(200);
 
   min-width: fit-content;
 

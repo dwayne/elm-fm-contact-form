@@ -1,11 +1,11 @@
 @use "colors";
-@use "spacing" as *;
+@use "spaces";
 @use "typography";
 
 .labelled-checkbox {
   display: flex;
   align-items: center;
-  gap: s(200);
+  gap: spaces.get-space(200);
 
   color: colors.get-color("grey-900");
 

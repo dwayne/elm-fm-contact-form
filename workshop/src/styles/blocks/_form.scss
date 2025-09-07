@@ -1,23 +1,23 @@
 @use "colors";
-@use "spacing" as *;
+@use "spaces";
 @use "typography";
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: s(500);
+  gap: spaces.get-space(500);
 
   min-width: fit-content;
 
-  border-radius: s(200);
-  padding: s(300);
+  border-radius: spaces.get-space(200);
+  padding: spaces.get-space(300);
 
   background-color: colors.get-color("white");
 
   &__section {
     display: flex;
     flex-direction: column;
-    gap: s(400);
+    gap: spaces.get-space(400);
   }
 
   &__title {
@@ -29,7 +29,7 @@
   &__fields {
     display: flex;
     flex-direction: column;
-    gap: s(300);
+    gap: spaces.get-space(300);
   }
 }
 

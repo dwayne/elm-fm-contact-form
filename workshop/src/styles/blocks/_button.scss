@@ -1,5 +1,5 @@
 @use "colors";
-@use "spacing" as *;
+@use "spaces";
 @use "typography";
 
 .button {
@@ -7,8 +7,8 @@
   border: none;
   cursor: pointer;
 
-  border-radius: s(100);
-  padding: s(200) s(500);
+  border-radius: spaces.get-space(100);
+  padding: spaces.get-space(200) spaces.get-space(500);
 
   background: colors.get-color("green-600");
   color: colors.get-color("white");

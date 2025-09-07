@@ -5,5 +5,5 @@ const { labelProps, text, isRequired = true, ...rest } = Astro.props;
 ---
 <label class:list={["labelled-checkbox", labelProps?.class]}>
   <Checkbox {...rest} />
-  <span>{text}{isRequired && <>&nbsp;<span class="required">*</span></>}</span>
+  <span>{text}{isRequired && <>&nbsp;<span class="fg-green-600">*</span></>}</span>
 </label>

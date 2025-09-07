@@ -3,5 +3,5 @@ const { id, class: className, title, isRequired = true, ...rest } = Astro.props;
 ---
 <label class:list={["label", className]} for={id} {...rest}>
   {title}
-  {isRequired && <span class="required">*</span>}
+  {isRequired && <span class="fg-green-600">*</span>}
 </label>

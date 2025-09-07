@@ -1,25 +1,25 @@
 @use "colors";
-@use "spacing" as *;
+@use "spaces";
 @use "typography";
 
 .toast {
   display: flex;
   flex-direction: column;
-  gap: s(100);
+  gap: spaces.get-space(100);
 
   width: 100%;
   min-width: 210px;
   max-width: 450px;
 
-  border-radius: s(150);
-  padding: s(300);
+  border-radius: spaces.get-space(150);
+  padding: spaces.get-space(300);
 
   background-color: colors.get-color("grey-900");
 
   &__header {
     display: flex;
     align-items: center;
-    gap: s(100);
+    gap: spaces.get-space(100);
   }
 
   &__title {
