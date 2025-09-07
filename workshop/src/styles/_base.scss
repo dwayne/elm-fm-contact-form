@@ -11,6 +11,7 @@
 }
 
 @include colors.generate-custom-properties-and-classes;
+@include typography.generate-classes;
 @include spaces.generate-custom-properties-and-classes;
 @include layouts.generate-classes;
 

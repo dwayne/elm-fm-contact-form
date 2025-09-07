@@ -1,0 +1,25 @@
+---
+const {
+  name,
+  title, subtitle,
+  fontSize, lineHeight, letterSpacing,
+  sample = "Lorem ipsum dolor sit amet consectetur adipisicing"
+} = Astro.props;
+---
+<div class="typography-card">
+  <div class="typography-card__top">
+    <h2 class="typography-card__header">
+      <span class="typography-card__title">{title}</span>
+      <span class="typography-card__subtitle">{subtitle}</span>
+    </h2>
+    <div class="typography-card__description">
+      <span>{fontSize}</span>
+      <span>{lineHeight} Line Height</span>
+      <span>{letterSpacing} Letter Spacing</span>
+    </div>
+  </div>
+
+  <hr class="typography-card__separator" />
+
+  <p class:list={["typography-card__sample", `typography-${name}`]}>{sample}</p>
+</div>

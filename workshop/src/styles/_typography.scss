@@ -1,8 +1,6 @@
-// Font stacks
+@use "sass:meta";
 
 $karla: Karla, sans-serif;
-
-// Mixins
 
 @mixin heading {
   font-family: $karla;
@@ -30,4 +28,12 @@ $karla: Karla, sans-serif;
   font-size: 16px;
   line-height: 150%;
   letter-spacing: 0px;
+}
+
+@mixin generate-classes {
+  @each $name in ["heading", "body-m", "body-m-bold", "body-s"] {
+    .typography-#{$name} {
+      @include meta.apply(meta.get-mixin($name));
+    }
+  }
 }

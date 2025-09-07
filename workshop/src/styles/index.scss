@@ -23,4 +23,5 @@
 
 @if config.is-workshop() {
   @include meta.load-css("blocks/swatch");
+  @include meta.load-css("blocks/typography-card");
 }

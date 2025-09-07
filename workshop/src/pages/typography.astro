@@ -1,0 +1,43 @@
+---
+import Layout from "@/layouts/Base.astro";
+
+import TypographyCard from "@/components/TypographyCard.astro";
+---
+<Layout title="Typography">
+  <h1>Typography</h1>
+
+  <div class="l-column" style="--l-column-gap: 56px">
+    <TypographyCard
+      name="heading"
+      title="Heading"
+      subtitle="Karla Bold"
+      fontSize="32px"
+      lineHeight="100%"
+      letterSpacing="-1px"
+    />
+    <TypographyCard
+      name="body-m-bold"
+      title="Body MD (Bold)"
+      subtitle="Karla Bold"
+      fontSize="18px"
+      lineHeight="150%"
+      letterSpacing="0px"
+    />
+    <TypographyCard
+      name="body-m"
+      title="Body MD (Regular)"
+      subtitle="Karla Regular"
+      fontSize="18px"
+      lineHeight="150%"
+      letterSpacing="0px"
+    />
+    <TypographyCard
+      name="body-s"
+      title="Body SM"
+      subtitle="Karla Regular"
+      fontSize="16px"
+      lineHeight="150%"
+      letterSpacing="0px"
+    />
+  </div>
+</Layout>

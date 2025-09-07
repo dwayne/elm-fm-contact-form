@@ -1,0 +1,47 @@
+@use "colors";
+@use "layouts";
+@use "typography";
+
+.typography-card {
+  @include layouts.l-column(24px);
+
+  &__top {
+    @include layouts.l-column(4px);
+  }
+
+  &__header {
+    margin: 0;
+
+    display: flex;
+    gap: 16px;
+
+    @include typography.body-m-bold;
+  }
+
+  &__title {
+    color: colors.get-color("green-600");
+  }
+
+  &__subtitle {
+    color: colors.get-color("grey-900");
+  }
+
+  &__description {
+    display: flex;
+    gap: 24px;
+  }
+
+  &__separator {
+    width: 100%;
+
+    border: 0;
+    border-top: 1px solid colors.get-color("grey-900");
+    opacity: 15%;
+  }
+
+  &__sample {
+    margin: 0;
+
+    color: colors.get-color("grey-900");
+  }
+}
