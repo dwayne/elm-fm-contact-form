@@ -8,6 +8,6 @@
   gap: s(100);
 
   &__error {
-    color: colors.$red;
+    color: colors.get-color("red");
   }
 }

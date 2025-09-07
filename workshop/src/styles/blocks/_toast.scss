@@ -14,7 +14,7 @@
   border-radius: s(150);
   padding: s(300);
 
-  background-color: colors.$grey-900;
+  background-color: colors.get-color("grey-900");
 
   &__header {
     display: flex;
@@ -23,13 +23,13 @@
   }
 
   &__title {
-    color: colors.$white;
+    color: colors.get-color("white");
 
     @include typography.body-m-bold;
   }
 
   &__body {
-    color: colors.$green-200;
+    color: colors.get-color("green-200");
 
     @include typography.body-s;
   }

@@ -10,6 +10,6 @@
   min-width: max-content;
   cursor: pointer;
 
-  color: colors.$grey-900;
+  color: colors.get-color("grey-900");
   @include typography.body-s;
 }

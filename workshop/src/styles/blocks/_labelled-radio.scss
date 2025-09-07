@@ -10,28 +10,28 @@
   min-width: fit-content;
   width: 100%;
 
-  border: 1px solid colors.$grey-500;
+  border: 1px solid colors.get-color("grey-500");
   border-radius: s(100);
 
   padding: s(150) s(300);
 
   cursor: pointer;
 
-  background-color: colors.$white;
-  color: colors.$grey-900;
+  background-color: colors.get-color("white");
+  color: colors.get-color("grey-900");
 
   @include typography.body-m;
 
   &:hover {
-    border-color: colors.$green-600;
+    border-color: colors.get-color("green-600");
   }
 
   &:has(.input[type="radio"]:checked) {
-    border-color: colors.$green-600;
-    background-color: colors.$green-200;
+    border-color: colors.get-color("green-600");
+    background-color: colors.get-color("green-200");
 
     &:hover {
-      background-color: colors.$white;
+      background-color: colors.get-color("white");
     }
   }
 }

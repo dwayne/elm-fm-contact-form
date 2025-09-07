@@ -1,15 +1,30 @@
-$green-200: hsl(148deg 38% 91%);
-$green-600: hsl(169deg 82% 27%);
-$grey-500: hsl(186deg 15% 59%);
-$grey-900: hsl(187deg 24% 22%);
-$red: hsl(0deg 66% 54%);
-$white: hsl(0deg 0% 100%);
+@use "sass:map";
 
-$all: (
-  "green-200": $green-200,
-  "green-600": $green-600,
-  "grey-500": $grey-500,
-  "grey-900": $grey-900,
-  "red": $red,
-  "white": $white
+$-colors: (
+  "green-200": hsl(148deg 38% 91%),
+  "green-600": hsl(169deg 82% 27%),
+  "grey-500": hsl(186deg 15% 59%),
+  "grey-900": hsl(187deg 24% 22%),
+  "red": hsl(0deg 66% 54%),
+  "white": hsl(0deg 0% 100%)
 );
+
+@function get-color($name) {
+  @return map.get($-colors, $name);
+}
+
+:root {
+  @each $key, $value in $-colors {
+    --color-#{$key}: #{$value};
+  }
+}
+
+@each $key, $value in $-colors {
+  .fg-#{$key} {
+    color: #{$value};
+  }
+
+  .bg-#{$key} {
+    background-color: #{$value};
+  }
+}

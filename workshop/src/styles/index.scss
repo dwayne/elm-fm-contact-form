@@ -37,7 +37,7 @@
 }
 
 .body {
-  color: colors.$grey-900;
+  color: colors.get-color("grey-900");
   @include typography.body-m;
 }
 
@@ -45,7 +45,7 @@
   margin: 0;
   padding: s(400) s(200);
 
-  background-color: colors.$green-200;
+  background-color: colors.get-color("green-200");
 
   @media (min-width: 768px) {
     & {
@@ -55,5 +55,5 @@
 }
 
 .required {
-  color: colors.$green-600;
+  color: colors.get-color("green-600");
 }

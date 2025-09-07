@@ -1,8 +1,8 @@
-@use "colors";
+@use "colors" as *;
 @use "spacing" as *;
 
 .bg-grey-900 {
-  background-color: colors.$grey-900;
+  background-color: get-color("grey-900");
 }
 
 .p-100 {

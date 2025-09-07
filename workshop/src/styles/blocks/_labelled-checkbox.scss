@@ -7,7 +7,7 @@
   align-items: center;
   gap: s(200);
 
-  color: colors.$grey-900;
+  color: colors.get-color("grey-900");
 
   @include typography.body-s;
 

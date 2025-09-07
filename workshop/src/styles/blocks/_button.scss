@@ -10,8 +10,8 @@
   border-radius: s(100);
   padding: s(200) s(500);
 
-  background: colors.$green-600;
-  color: colors.$white;
+  background: colors.get-color("green-600");
+  color: colors.get-color("white");
 
   @include typography.body-m-bold;
 
@@ -21,6 +21,6 @@
         rgba(0, 0, 0, 50%),
         rgba(0, 0, 0, 50%)
       ),
-      colors.$green-600;
+      colors.get-color("green-600");
   }
 }

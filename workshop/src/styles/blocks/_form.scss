@@ -12,7 +12,7 @@
   border-radius: s(200);
   padding: s(300);
 
-  background-color: colors.$white;
+  background-color: colors.get-color("white");
 
   &__section {
     display: flex;
