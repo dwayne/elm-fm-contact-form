@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+### Usage: app (build [args])
+
+set -euo pipefail
+
+app_build="${app_build:?}"
+project="${project:?}"
+
+main () {
+  local cmd="${1:-}"
+
+  cd "$project/app"
+
+  case "$cmd" in
+    build)
+      shift
+      rm -rf "$app_build"
+      mkdir -p "$app_build"
+      build-elm "$@" src/Main.elm "$app_build/index.js"
+      ;;
+
+    "")
+      show_usage
+      ;;
+
+    *)
+      printf 'Error: Unknown command "%s"\n' "$cmd"
+      exit 1
+      ;;
+  esac
+}
+
+show_usage () {
+  #
+  # 1. Extract lines starting with ### (doc comments)
+  # 2. Strip the marker and the optional space
+  #
+  grep '^###' "$0" | sed -E 's/^### ?//'
+  exit 0
+}
+
+main "$@"
