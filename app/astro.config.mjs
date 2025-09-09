@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import elmPlugin from "vite-plugin-elm";
+import elmPlugin from 'vite-plugin-elm';
 import process from 'node:process';
 
 const base = process.env.ASTRO_BASE || '/';
@@ -9,7 +9,11 @@ export default defineConfig({
   base,
   vite: {
     plugins: [
-      elmPlugin()
+      elmPlugin({
+        nodeElmCompilerOptions: {
+          pathToElm: 'elm'
+        }
+      })
     ]
   }
 });
