@@ -1,6 +1,70 @@
 {
   "lockfile_version": "1",
   "packages": {
+    "elmPackages.elm@latest": {
+      "last_modified": "2025-07-28T17:09:23Z",
+      "resolved": "github:NixOS/nixpkgs/648f70160c03151bc2121d179291337ad6bc564b#elmPackages.elm",
+      "source": "devbox-search",
+      "version": "0.19.1",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/6hx8g6k7ihgaqvy1i0ydiy7v13s04pf4-elm-0.19.1",
+              "default": true
+            },
+            {
+              "name": "doc",
+              "path": "/nix/store/m9d4xkh42f49i5gyiq4vgrxhwnkqq6rg-elm-0.19.1-doc"
+            }
+          ],
+          "store_path": "/nix/store/6hx8g6k7ihgaqvy1i0ydiy7v13s04pf4-elm-0.19.1"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/l8r8i1n9143s2wr82cjkp5is5lzwxym1-elm-0.19.1",
+              "default": true
+            },
+            {
+              "name": "doc",
+              "path": "/nix/store/w3c1wzi8yj1b4hc80x3vlzhlxvmzb35x-elm-0.19.1-doc"
+            }
+          ],
+          "store_path": "/nix/store/l8r8i1n9143s2wr82cjkp5is5lzwxym1-elm-0.19.1"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/57b4fcq4yapv9sw5xagnfbf4jcq77i20-elm-0.19.1",
+              "default": true
+            },
+            {
+              "name": "doc",
+              "path": "/nix/store/zbv5s1mv9m7bdq5yv2h4kbvq6hlgb5ly-elm-0.19.1-doc"
+            }
+          ],
+          "store_path": "/nix/store/57b4fcq4yapv9sw5xagnfbf4jcq77i20-elm-0.19.1"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/07nnh4j932kgqg4p2x72ydg6n58i291v-elm-0.19.1",
+              "default": true
+            },
+            {
+              "name": "doc",
+              "path": "/nix/store/fkvbwvkca2cz81jsmps793qlwvvi0gzj-elm-0.19.1-doc"
+            }
+          ],
+          "store_path": "/nix/store/07nnh4j932kgqg4p2x72ydg6n58i291v-elm-0.19.1"
+        }
+      }
+    },
     "github:NixOS/nixpkgs/nixpkgs-unstable": {
       "last_modified": "2025-08-10T04:38:50Z",
       "resolved": "github:NixOS/nixpkgs/641d909c4a7538f1539da9240dedb1755c907e40?lastModified=1754800730&narHash=sha256-HfVZCXic9XLBgybP0318ym3cDnGwBs%2F%2BH5MgxFVYF4I%3D"
@@ -131,6 +195,54 @@
             }
           ],
           "store_path": "/nix/store/q4cljfi7la5sbb75vb2kkgvbg2qwgz2x-pnpm-10.14.0"
+        }
+      }
+    },
+    "rsync@latest": {
+      "last_modified": "2025-07-28T17:09:23Z",
+      "resolved": "github:NixOS/nixpkgs/648f70160c03151bc2121d179291337ad6bc564b#rsync",
+      "source": "devbox-search",
+      "version": "3.4.1",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/77pnaxap7s08d3cg3521mvf0r5g00j5b-rsync-3.4.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/77pnaxap7s08d3cg3521mvf0r5g00j5b-rsync-3.4.1"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/9qc1kajfbdil3qmg31rhjg1acx84y4rs-rsync-3.4.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/9qc1kajfbdil3qmg31rhjg1acx84y4rs-rsync-3.4.1"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/za6vmvcm3p0qan2qngh657lxx0f273gk-rsync-3.4.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/za6vmvcm3p0qan2qngh657lxx0f273gk-rsync-3.4.1"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/aav90wsa87akkdgdkzylnq1dm7bzp5zm-rsync-3.4.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/aav90wsa87akkdgdkzylnq1dm7bzp5zm-rsync-3.4.1"
         }
       }
     }
