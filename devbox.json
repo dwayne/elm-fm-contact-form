@@ -2,6 +2,7 @@
   "packages": [
     "elmPackages.elm@latest",
     "nodejs@22",
+    "nushell@latest",
     "pnpm@latest",
     "rsync@latest"
   ],

@@ -1,60 +1,29 @@
-#!/usr/bin/env bash
+#!/usr/bin/env nu
 
-### Usage: app (prepare|dev|build|preview)
+def "main prepare" [] {
+  let app_public = $"($env.project)/app/public/"
 
-set -euo pipefail
+  # 1.
+  rsync -a $"($env.project)/workshop/public/" $app_public
 
-project="${project:?}"
-
-main () {
-  local cmd="${1:-}"
-
-  cd "$project/app"
-
-  case "$cmd" in
-    prepare)
-      prepare
-      ;;
-
-    dev)
-      pnpm dev
-      ;;
-
-    build)
-      pnpm build
-      ;;
-
-    preview)
-      pnpm preview
-      ;;
-
-    "")
-      show_usage
-      ;;
-
-    *)
-      printf 'Error: Unknown command "%s"\n' "$cmd"
-      exit 1
-      ;;
-  esac
-}
-
-prepare () {
-  # 1. Copy public assets
-  rsync -a "$project/workshop/public/" "$project/app/public/"
-
-  # 2. Build the workshop and copy the CSS
+  # 2.
   STYLE_MODE=app workshop build
-  cp "$project"/workshop/dist/_astro/index.*.css "$project/app/public/"
+
+  # 3.
+  let css_files = glob $"($env.project)/workshop/dist/_astro/index.*.css"
+  cp ...$css_files $app_public
 }
 
-show_usage () {
-  #
-  # 1. Extract lines starting with ### (doc comments)
-  # 2. Strip the marker and the optional space
-  #
-  grep '^###' "$0" | sed -E 's/^### ?//'
-  exit 0
+def "main dev" [] {
+  cd $"($env.project)/app"; pnpm dev
 }
 
-main "$@"
+def "main build" [] {
+  cd $"($env.project)/app"; pnpm build
+}
+
+def "main preview" [] {
+  cd $"($env.project)/app"; pnpm preview
+}
+
+def main [] {}

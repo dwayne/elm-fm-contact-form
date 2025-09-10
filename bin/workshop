@@ -1,47 +1,15 @@
-#!/usr/bin/env bash
+#!/usr/bin/env nu
 
-### Usage: workshop (dev|build|preview)
-
-set -euo pipefail
-
-project="${project:?}"
-
-main () {
-  local cmd="${1:-}"
-
-  cd "$project/workshop"
-
-  case "$cmd" in
-    dev)
-      pnpm dev
-      ;;
-
-    build)
-      pnpm build
-      ;;
-
-    preview)
-      pnpm preview
-      ;;
-
-    "")
-      show_usage
-      ;;
-
-    *)
-      printf 'Error: Unknown command "%s"\n' "$cmd"
-      exit 1
-      ;;
-  esac
+def "main dev" [] {
+  cd $"($env.project)/workshop"; pnpm dev
 }
 
-show_usage () {
-  #
-  # 1. Extract lines starting with ### (doc comments)
-  # 2. Strip the marker and the optional space
-  #
-  grep '^###' "$0" | sed -E 's/^### ?//'
-  exit 0
+def "main build" [] {
+  cd $"($env.project)/workshop"; pnpm build
 }
 
-main "$@"
+def "main preview" [] {
+  cd $"($env.project)/workshop"; pnpm preview
+}
+
+def main [] {}
