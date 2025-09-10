@@ -1,6 +1,7 @@
 {
   "packages": [
     "elmPackages.elm@latest",
+    "elmPackages.elm-format@latest",
     "nodejs@22",
     "nushell@latest",
     "pnpm@latest",

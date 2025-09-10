@@ -14,6 +14,10 @@ def "main prepare" [] {
   cp ...$css_files $app_public
 }
 
+def "main format" [] {
+  cd $"($env.project)/app"; elm-format "src/elm" --yes
+}
+
 def "main dev" [] {
   cd $"($env.project)/app"; pnpm dev
 }
