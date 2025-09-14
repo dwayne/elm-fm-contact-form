@@ -10,36 +10,32 @@ import View.Button as Button
 suite : Test
 suite =
     describe "View.Button"
-        [ test "example 1" <|
+        [ test "button" <|
             \_ ->
                 Button.view
                     { type_ = Button.Button
                     , text = "A button"
-                    , isDisabled = False
-                    , attrs = []
                     }
+                    []
                     |> Query.fromHtml
                     |> Query.has
                         [ Sel.tag "button"
                         , Sel.attribute (HA.type_ "button")
                         , Sel.exactClassName "button"
                         , Sel.exactText "A button"
-                        , Sel.disabled False
                         ]
-        , test "example 2" <|
+        , test "submit" <|
             \_ ->
                 Button.view
                     { type_ = Button.Submit
                     , text = "Submit"
-                    , isDisabled = False
-                    , attrs = []
                     }
+                    []
                     |> Query.fromHtml
                     |> Query.has
                         [ Sel.tag "button"
                         , Sel.attribute (HA.type_ "submit")
                         , Sel.exactClassName "button"
                         , Sel.exactText "Submit"
-                        , Sel.disabled False
                         ]
         ]

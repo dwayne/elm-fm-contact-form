@@ -7,23 +7,20 @@ module View.Button exposing
 
 import Html as H
 import Html.Attributes as HA
+import Lib.View.Generic as Generic
 
 
-submit : Bool -> H.Html msg
-submit isDisabled =
+submit : List (H.Attribute msg) -> H.Html msg
+submit =
     view
         { type_ = Submit
         , text = "Submit"
-        , isDisabled = isDisabled
-        , attrs = []
         }
 
 
-type alias ViewOptions msg =
+type alias ViewOptions =
     { type_ : Type
     , text : String
-    , isDisabled : Bool
-    , attrs : List (H.Attribute msg)
     }
 
 
@@ -32,20 +29,22 @@ type Type
     | Submit
 
 
-view : ViewOptions msg -> H.Html msg
-view { type_, text, isDisabled, attrs } =
-    H.button
-        ([ HA.class "button"
-         ]
-            ++ attrs
-            ++ [ HA.type_ <|
-                    case type_ of
-                        Button ->
-                            "button"
+view : ViewOptions -> List (H.Attribute msg) -> H.Html msg
+view { type_, text } attrs =
+    Generic.view
+        { element = H.button
+        , preAttrs =
+            [ HA.class "button"
+            ]
+        , postAttrs =
+            [ HA.type_ <|
+                case type_ of
+                    Button ->
+                        "button"
 
-                        Submit ->
-                            "submit"
-               , HA.disabled isDisabled
-               ]
-        )
+                    Submit ->
+                        "submit"
+            ]
+        }
+        attrs
         [ H.text text ]
