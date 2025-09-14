@@ -7,8 +7,8 @@ const { id, title, isRequired = true, Control, error, ...rest } = Astro.props;
   {title && <Label {...{id, title, isRequired}} />}
   <Control
     {id}
-    isDirty={error ? true : false}
-    isValid={error ? false : true}
+    data-is-dirty={error ? true : false}
+    data-is-valid={error ? false : true}
     {...rest}
   />
   {error && <div class="field__error">{error}</div>}
