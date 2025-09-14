@@ -1,7 +1,22 @@
-module View.Button exposing (Type(..), ViewOptions, view)
+module View.Button exposing
+    ( Type(..)
+    , ViewOptions
+    , submit
+    , view
+    )
 
 import Html as H
 import Html.Attributes as HA
+
+
+submit : Bool -> H.Html msg
+submit isDisabled =
+    view
+        { type_ = Submit
+        , text = "Submit"
+        , isDisabled = isDisabled
+        , attrs = []
+        }
 
 
 type alias ViewOptions msg =

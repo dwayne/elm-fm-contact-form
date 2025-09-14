@@ -2,6 +2,7 @@
   "packages": [
     "elmPackages.elm@latest",
     "elmPackages.elm-format@latest",
+    "elmPackages.elm-test@latest",
     "nodejs@22",
     "nushell@latest",
     "pnpm@latest",
@@ -15,9 +16,11 @@
     "init_hook": [
       "[[ ! -d $project/app/node_modules ]] && cd $project/app && pnpm install --silent",
       "[[ ! -d $project/workshop/node_modules ]] && cd $project/workshop && pnpm install --silent",
-      "alias ad='app dev'",
-      "alias ab='app build'",
-      "alias ap='app preview'",
+      "alias d='app dev'",
+      "alias f='app format'",
+      "alias b='app build'",
+      "alias p='app preview'",
+      "alias t='app test'",
       "alias wd='workshop dev'",
       "alias wb='workshop build'",
       "alias wp='workshop preview'"

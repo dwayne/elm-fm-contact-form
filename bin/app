@@ -15,7 +15,11 @@ def "main prepare" [] {
 }
 
 def "main format" [] {
-  cd $"($env.project)/app"; elm-format "src/elm" --yes
+  cd $"($env.project)/app"; elm-format "src/elm" "tests" --yes
+}
+
+def --wrapped "main test" [...args] {
+  cd $"($env.project)/app"; elm-test ...$args
 }
 
 def "main dev" [] {
