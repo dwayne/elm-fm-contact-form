@@ -26,6 +26,10 @@ view { type_, field } attrs =
             [ HA.class "input"
             ]
         , postAttrs =
+            let
+                { value, data } =
+                    F.toAttrs field
+            in
             [ HA.type_ <|
                 case type_ of
                     Text ->
@@ -33,8 +37,10 @@ view { type_, field } attrs =
 
                     Email ->
                         "email"
+            , value
+            , data.state
+            , data.validity
             ]
-                ++ F.toAttrs field
         }
         attrs
         []
