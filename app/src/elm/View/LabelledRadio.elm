@@ -1,4 +1,4 @@
-module View.LabelledRadio exposing (view)
+module View.LabelledRadio exposing (ViewOptions, view)
 
 import Html as H
 import Html.Attributes as HA
