@@ -1,9 +1,4 @@
-module Lib.Function exposing (flip, uncurry)
-
-
-flip : (a -> b -> c) -> b -> a -> c
-flip f b a =
-    f a b
+module Lib.Function exposing (uncurry)
 
 
 uncurry : (a -> b -> c) -> ( a, b ) -> c
