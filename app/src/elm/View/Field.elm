@@ -10,6 +10,17 @@ import View.Label as Label
 
 type alias ViewOptions msg =
     { id : String
+
+    --
+    -- FIXME:
+    --
+    -- Based on how it was used to build the
+    -- labelled checkbox field in View.Form
+    -- I think the title and isRequired fields
+    -- should be changed to be the following:
+    --
+    -- title : Maybe { text : String, isRequired : Bool }
+    --
     , title : String
     , isRequired : Bool
     , control : String -> H.Html msg
