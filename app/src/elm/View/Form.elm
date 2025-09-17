@@ -29,8 +29,7 @@ view { firstName, lastName, email, message } =
                 [ Group.view []
                     [ Field.view
                         { id = "first-name"
-                        , title = "First Name"
-                        , isRequired = True
+                        , title = Just { text = "First Name", isRequired = True }
                         , control =
                             \id ->
                                 Input.view
@@ -44,8 +43,7 @@ view { firstName, lastName, email, message } =
                         []
                     , Field.view
                         { id = "last-name"
-                        , title = "Last Name"
-                        , isRequired = True
+                        , title = Just { text = "Last Name", isRequired = True }
                         , control =
                             \id ->
                                 Input.view
@@ -60,8 +58,7 @@ view { firstName, lastName, email, message } =
                     ]
                 , Field.view
                     { id = "email"
-                    , title = "Email Address"
-                    , isRequired = True
+                    , title = Just { text = "Email Address", isRequired = True }
                     , control =
                         \id ->
                             Input.view
@@ -75,8 +72,7 @@ view { firstName, lastName, email, message } =
                     []
                 , Field.view
                     { id = "query-type"
-                    , title = "Query Type"
-                    , isRequired = True
+                    , title = Just { text = "Query Type", isRequired = True }
                     , control =
                         \_ ->
                             QueryType.view
@@ -99,8 +95,7 @@ view { firstName, lastName, email, message } =
                     []
                 , Field.view
                     { id = "message"
-                    , title = "Message"
-                    , isRequired = True
+                    , title = Just { text = "Message", isRequired = True }
                     , control =
                         \id ->
                             Textarea.view message [ HA.id id ]
@@ -112,8 +107,7 @@ view { firstName, lastName, email, message } =
         , viewFormSection
             [ Field.view
                 { id = "consent"
-                , title = ""
-                , isRequired = True
+                , title = Nothing
                 , control =
                     \id ->
                         LabelledCheckbox.view

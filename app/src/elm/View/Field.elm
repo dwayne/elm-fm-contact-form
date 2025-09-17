@@ -10,39 +10,28 @@ import View.Label as Label
 
 type alias ViewOptions msg =
     { id : String
-
-    --
-    -- FIXME:
-    --
-    -- Based on how it was used to build the
-    -- labelled checkbox field in View.Form
-    -- I think the title and isRequired fields
-    -- should be changed to be the following:
-    --
-    -- title : Maybe { text : String, isRequired : Bool }
-    --
-    , title : String
-    , isRequired : Bool
+    , title : Maybe { text : String, isRequired : Bool }
     , control : String -> H.Html msg
     , errorMessage : Maybe String
     }
 
 
 view : ViewOptions msg -> List (H.Attribute msg) -> H.Html msg
-view { id, title, isRequired, control, errorMessage } attrs =
+view { id, title, control, errorMessage } attrs =
     let
         labelChild =
-            if String.isEmpty title then
-                []
-
-            else
-                [ Label.view
-                    { id = id
-                    , title = title
-                    , isRequired = isRequired
-                    }
+            case title of
+                Nothing ->
                     []
-                ]
+
+                Just { text, isRequired } ->
+                    [ Label.view
+                        { id = id
+                        , title = text
+                        , isRequired = isRequired
+                        }
+                        []
+                    ]
 
         errorChild =
             case errorMessage of

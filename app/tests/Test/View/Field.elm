@@ -20,8 +20,7 @@ suite =
             view =
                 F.view
                     { id = "first-name"
-                    , title = "First Name"
-                    , isRequired = True
+                    , title = Just { text = "First Name", isRequired = True }
                     , control =
                         \id ->
                             Input.view
