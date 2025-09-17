@@ -21,6 +21,10 @@ $-spaces: (
     }
   }
 
+  .m-0 {
+    margin: 0;
+  }
+
   .p-100 {
     padding: get-space(100);
   }
