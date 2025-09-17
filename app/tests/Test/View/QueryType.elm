@@ -47,13 +47,21 @@ suite =
                                 ]
                         , Query.find [ Sel.id "general-enquiry" ]
                             >> Query.find [ Sel.tag "input" ]
-                            >> Query.has [ Sel.checked True ]
+                            >> Query.has
+                                [ Sel.attribute (HA.name "query-type")
+                                , Sel.checked True
+                                ]
                         , Query.find [ Sel.id "support-request" ]
                             >> Query.has
                                 [ Sel.exactText "Support Request"
                                 ]
                         , Query.find [ Sel.id "support-request" ]
                             >> Query.find [ Sel.tag "input" ]
-                            >> Query.hasNot [ Sel.checked True ]
+                            >> Expect.all
+                                [ Query.has
+                                    [ Sel.attribute (HA.name "query-type")
+                                    ]
+                                , Query.hasNot [ Sel.checked True ]
+                                ]
                         ]
         ]

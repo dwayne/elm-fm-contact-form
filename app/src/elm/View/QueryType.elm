@@ -2,7 +2,7 @@ module View.QueryType exposing (ViewOptions, view)
 
 import Html as H
 import Html.Attributes as HA
-import Lib.Function exposing (flip, uncurry)
+import Lib.Function exposing (uncurry)
 import Lib.View.Generic as Generic
 import View.Group as Group
 import View.LabelledRadio as LabelledRadio
@@ -19,7 +19,15 @@ view : ViewOptions msg -> H.Html msg
 view { name, first, second } =
     Group.view []
         [ uncurry LabelledRadio.view <|
-            Tuple.mapSecond (flip (++) [ HA.name name ]) first
+            Tuple.mapFirst
+                (\options ->
+                    { options | radioAttrs = options.radioAttrs ++ [ HA.name name ] }
+                )
+                first
         , uncurry LabelledRadio.view <|
-            Tuple.mapSecond (flip (++) [ HA.name name ]) second
+            Tuple.mapFirst
+                (\options ->
+                    { options | radioAttrs = options.radioAttrs ++ [ HA.name name ] }
+                )
+                second
         ]
