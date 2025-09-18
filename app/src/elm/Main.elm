@@ -49,10 +49,7 @@ update _ model =
 
 view : Model -> H.Html msg
 view _ =
-    H.div
-        [ HA.class "body"
-        , HA.attribute "data-variant" "app"
-        ]
+    H.div []
         [ Form.view
             { firstName = F.empty F.nonEmptyString
             , lastName = F.empty F.nonEmptyString
