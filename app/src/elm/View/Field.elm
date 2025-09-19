@@ -8,16 +8,17 @@ import Lib.View.Generic as Generic
 import View.Label as Label
 
 
-type alias ViewOptions msg =
+type alias ViewOptions e a msg =
     { id : String
     , title : Maybe { text : String, isRequired : Bool }
     , control : String -> H.Html msg
-    , errorMessage : Maybe String
+    , field : Field e a
+    , errorToString : e -> String
     }
 
 
-view : ViewOptions msg -> List (H.Attribute msg) -> H.Html msg
-view { id, title, control, errorMessage } attrs =
+view : ViewOptions e a msg -> List (H.Attribute msg) -> H.Html msg
+view { id, title, control, field, errorToString } attrs =
     let
         labelChild =
             case title of
@@ -34,15 +35,19 @@ view { id, title, control, errorMessage } attrs =
                     ]
 
         errorChild =
-            case errorMessage of
-                Nothing ->
-                    []
-
-                Just text ->
-                    [ H.div [ HA.class "field__error" ]
-                        [ H.text text
+            if F.isDirty field then
+                case F.firstError field of
+                    Just error ->
+                        [ H.div [ HA.class "field__error" ]
+                            [ H.text (errorToString error)
+                            ]
                         ]
-                    ]
+
+                    Nothing ->
+                        []
+
+            else
+                []
     in
     Generic.view
         { element = H.div

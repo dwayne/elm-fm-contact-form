@@ -1,5 +1,6 @@
 module View.Form exposing (view)
 
+import Data.Contact.Error as Error
 import Data.Contact.Form as Contact
 import Data.Contact.QueryType as QueryType exposing (QueryType)
 import Field.Advanced as Field exposing (Field)
@@ -50,7 +51,8 @@ view { form, onFirstName, onLastName, onEmail, onQueryType, onMessage, onConsent
                                     [ HA.id id
                                     , HE.onInput onFirstName
                                     ]
-                        , errorMessage = Nothing
+                        , field = firstName
+                        , errorToString = Error.textErrorToString
                         }
                         []
                     , Field.view
@@ -65,7 +67,8 @@ view { form, onFirstName, onLastName, onEmail, onQueryType, onMessage, onConsent
                                     [ HA.id id
                                     , HE.onInput onLastName
                                     ]
-                        , errorMessage = Nothing
+                        , field = lastName
+                        , errorToString = Error.textErrorToString
                         }
                         []
                     ]
@@ -81,7 +84,8 @@ view { form, onFirstName, onLastName, onEmail, onQueryType, onMessage, onConsent
                                 [ HA.id id
                                 , HE.onInput onEmail
                                 ]
-                    , errorMessage = Nothing
+                    , field = email
+                    , errorToString = always ""
                     }
                     []
                 , Field.view
@@ -122,7 +126,8 @@ view { form, onFirstName, onLastName, onEmail, onQueryType, onMessage, onConsent
                                     , []
                                     )
                                 }
-                    , errorMessage = Nothing
+                    , field = queryType
+                    , errorToString = always ""
                     }
                     []
                 , Field.view
@@ -135,7 +140,8 @@ view { form, onFirstName, onLastName, onEmail, onQueryType, onMessage, onConsent
                                 [ HA.id id
                                 , HE.onInput onMessage
                                 ]
-                    , errorMessage = Nothing
+                    , field = message
+                    , errorToString = Error.textErrorToString
                     }
                     []
                 ]
@@ -160,7 +166,8 @@ view { form, onFirstName, onLastName, onEmail, onQueryType, onMessage, onConsent
                                 ]
                             }
                             []
-                , errorMessage = Nothing
+                , field = consent
+                , errorToString = always ""
                 }
                 []
             ]

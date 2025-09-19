@@ -16,6 +16,7 @@ suite =
         let
             field =
                 F.empty F.nonEmptyString
+                    |> F.setFromString ""
 
             view =
                 F.view
@@ -28,16 +29,13 @@ suite =
                                 , field = field
                                 }
                                 [ HA.id id ]
-                    , errorMessage =
-                        field
-                            |> F.firstError
-                            |> Maybe.map
-                                (F.errorToString
-                                    { onBlank = "This field is required"
-                                    , onSyntaxError = always ""
-                                    , onValidationError = always ""
-                                    }
-                                )
+                    , field = field
+                    , errorToString =
+                        F.errorToString
+                            { onBlank = "This field is required"
+                            , onSyntaxError = always ""
+                            , onValidationError = always ""
+                            }
                     }
                     []
         in
@@ -64,7 +62,7 @@ suite =
                             >> Query.has
                                 [ Sel.attribute (HA.type_ "text")
                                 , Sel.id "first-name"
-                                , Sel.attribute (HA.attribute "data-state" "clean")
+                                , Sel.attribute (HA.attribute "data-state" "dirty")
                                 , Sel.attribute (HA.attribute "data-validity" "invalid")
                                 , Sel.attribute (HA.value "")
                                 ]
