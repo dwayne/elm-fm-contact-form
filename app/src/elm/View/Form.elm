@@ -6,6 +6,7 @@ import Field.Advanced as Field exposing (Field)
 import Form
 import Html as H
 import Html.Attributes as HA
+import Html.Events as HE
 import View.Button as Button
 import View.Field as Field
 import View.Group as Group
@@ -15,8 +16,14 @@ import View.QueryType as QueryType
 import View.Textarea as Textarea
 
 
-view : Contact.Form -> H.Html msg
-view form =
+type alias ViewOptions msg =
+    { form : Contact.Form
+    , onFirstName : String -> msg
+    }
+
+
+view : ViewOptions msg -> H.Html msg
+view { form, onFirstName } =
     let
         { firstName, lastName, email, queryType, message, consent } =
             Form.toState form
@@ -36,6 +43,7 @@ view form =
                                     , field = firstName
                                     }
                                     [ HA.id id
+                                    , HE.onInput onFirstName
                                     ]
                         , errorMessage = Nothing
                         }

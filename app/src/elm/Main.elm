@@ -10,7 +10,7 @@ import Html.Attributes as HA
 import View.Form as Form
 
 
-main : Program () Model msg
+main : Program () Model Msg
 main =
     B.element
         { init = init
@@ -41,26 +41,37 @@ init _ =
 -- UPDATE
 
 
-update : msg -> Model -> ( Model, Cmd msg )
-update _ model =
-    ( model
-    , Cmd.none
-    )
+type Msg
+    = InputFirstName String
+
+
+update : Msg -> Model -> ( Model, Cmd msg )
+update msg model =
+    case msg of
+        InputFirstName s ->
+            ( { model | form = Form.modify .firstName (Field.setFromString s) model.form }
+            , Cmd.none
+            )
 
 
 
 -- VIEW
 
 
-view : Model -> H.Html msg
+view : Model -> H.Html Msg
 view { form } =
+    let
+        filledForm =
+            form
+                |> Form.modify .lastName (Field.setFromString "Appleseed")
+                |> Form.modify .email (Field.setFromString "email@example.com")
+                |> Form.modify .queryType (Field.setFromValue QueryType.General)
+                |> Form.modify .message (Field.setFromString "Hello, I would like to know if you're able to build Shopify e-commerce sites. We're starting a business and we're going to use Shopify. But it would be great to work with an agency who specialises in working with it.")
+                |> Form.modify .consent (Field.setFromValue True)
+    in
     H.div []
-        [ form
-            |> Form.modify .firstName (Field.setFromString "John")
-            |> Form.modify .lastName (Field.setFromString "Appleseed")
-            |> Form.modify .email (Field.setFromString "email@example.com")
-            |> Form.modify .queryType (Field.setFromValue QueryType.General)
-            |> Form.modify .message (Field.setFromString "Hello, I would like to know if you're able to build Shopify e-commerce sites. We're starting a business and we're going to use Shopify. But it would be great to work with an agency who specialises in working with it.")
-            |> Form.modify .consent (Field.setFromValue True)
-            |> Form.view
+        [ Form.view
+            { form = filledForm
+            , onFirstName = InputFirstName
+            }
         ]
