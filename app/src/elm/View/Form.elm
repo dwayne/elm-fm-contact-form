@@ -85,7 +85,7 @@ view { form, onFirstName, onLastName, onEmail, onQueryType, onMessage, onConsent
                                 , HE.onInput onEmail
                                 ]
                     , field = email
-                    , errorToString = always ""
+                    , errorToString = Error.emailErrorToString
                     }
                     []
                 , Field.view
@@ -127,7 +127,7 @@ view { form, onFirstName, onLastName, onEmail, onQueryType, onMessage, onConsent
                                     )
                                 }
                     , field = queryType
-                    , errorToString = always ""
+                    , errorToString = Error.queryTypeErrorToString
                     }
                     []
                 , Field.view
@@ -167,7 +167,7 @@ view { form, onFirstName, onLastName, onEmail, onQueryType, onMessage, onConsent
                             }
                             []
                 , field = consent
-                , errorToString = always ""
+                , errorToString = Error.consentErrorToString
                 }
                 []
             ]
