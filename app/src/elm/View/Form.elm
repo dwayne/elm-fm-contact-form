@@ -1,7 +1,7 @@
 module View.Form exposing (view)
 
 import Data.Contact.Form as Contact
-import Data.Contact.QueryType as QueryType
+import Data.Contact.QueryType as QueryType exposing (QueryType)
 import Field.Advanced as Field exposing (Field)
 import Form
 import Html as H
@@ -19,11 +19,16 @@ import View.Textarea as Textarea
 type alias ViewOptions msg =
     { form : Contact.Form
     , onFirstName : String -> msg
+    , onLastName : String -> msg
+    , onEmail : String -> msg
+    , onQueryType : QueryType -> msg
+    , onMessage : String -> msg
+    , onConsent : Bool -> msg
     }
 
 
 view : ViewOptions msg -> H.Html msg
-view { form, onFirstName } =
+view { form, onFirstName, onLastName, onEmail, onQueryType, onMessage, onConsent } =
     let
         { firstName, lastName, email, queryType, message, consent } =
             Form.toState form
@@ -58,6 +63,7 @@ view { form, onFirstName } =
                                     , field = lastName
                                     }
                                     [ HA.id id
+                                    , HE.onInput onLastName
                                     ]
                         , errorMessage = Nothing
                         }
@@ -73,6 +79,7 @@ view { form, onFirstName } =
                                 , field = email
                                 }
                                 [ HA.id id
+                                , HE.onInput onEmail
                                 ]
                     , errorMessage = Nothing
                     }
@@ -95,7 +102,9 @@ view { form, onFirstName } =
                                                 checked =
                                                     maybeValue == Just QueryType.General
                                             in
-                                            [ HA.checked checked ]
+                                            [ HA.checked checked
+                                            , HE.onClick (onQueryType QueryType.General)
+                                            ]
                                       }
                                     , []
                                     )
@@ -106,7 +115,9 @@ view { form, onFirstName } =
                                                 checked =
                                                     maybeValue == Just QueryType.Support
                                             in
-                                            [ HA.checked checked ]
+                                            [ HA.checked checked
+                                            , HE.onClick (onQueryType QueryType.Support)
+                                            ]
                                       }
                                     , []
                                     )
@@ -119,7 +130,11 @@ view { form, onFirstName } =
                     , title = Just { text = "Message", isRequired = True }
                     , control =
                         \id ->
-                            Textarea.view message [ HA.id id ]
+                            Textarea.view
+                                message
+                                [ HA.id id
+                                , HE.onInput onMessage
+                                ]
                     , errorMessage = Nothing
                     }
                     []
@@ -141,6 +156,7 @@ view { form, onFirstName } =
                                 in
                                 [ HA.id id
                                 , HA.checked checked
+                                , HE.onClick (onConsent <| not checked)
                                 ]
                             }
                             []

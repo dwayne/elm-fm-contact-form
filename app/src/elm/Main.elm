@@ -2,7 +2,7 @@ module Main exposing (main)
 
 import Browser as B
 import Data.Contact.Form as Contact
-import Data.Contact.QueryType as QueryType
+import Data.Contact.QueryType as QueryType exposing (QueryType)
 import Field.Advanced as Field
 import Form
 import Html as H
@@ -43,6 +43,11 @@ init _ =
 
 type Msg
     = InputFirstName String
+    | InputLastName String
+    | InputEmail String
+    | InputQueryType QueryType
+    | InputMessage String
+    | InputConsent Bool
 
 
 update : Msg -> Model -> ( Model, Cmd msg )
@@ -53,6 +58,31 @@ update msg model =
             , Cmd.none
             )
 
+        InputLastName s ->
+            ( { model | form = Form.modify .lastName (Field.setFromString s) model.form }
+            , Cmd.none
+            )
+
+        InputEmail s ->
+            ( { model | form = Form.modify .email (Field.setFromString s) model.form }
+            , Cmd.none
+            )
+
+        InputQueryType q ->
+            ( { model | form = Form.modify .queryType (Field.setFromValue q) model.form }
+            , Cmd.none
+            )
+
+        InputMessage s ->
+            ( { model | form = Form.modify .message (Field.setFromString s) model.form }
+            , Cmd.none
+            )
+
+        InputConsent b ->
+            ( { model | form = Form.modify .consent (Field.setFromValue b) model.form }
+            , Cmd.none
+            )
+
 
 
 -- VIEW
@@ -60,18 +90,14 @@ update msg model =
 
 view : Model -> H.Html Msg
 view { form } =
-    let
-        filledForm =
-            form
-                |> Form.modify .lastName (Field.setFromString "Appleseed")
-                |> Form.modify .email (Field.setFromString "email@example.com")
-                |> Form.modify .queryType (Field.setFromValue QueryType.General)
-                |> Form.modify .message (Field.setFromString "Hello, I would like to know if you're able to build Shopify e-commerce sites. We're starting a business and we're going to use Shopify. But it would be great to work with an agency who specialises in working with it.")
-                |> Form.modify .consent (Field.setFromValue True)
-    in
     H.div []
         [ Form.view
-            { form = filledForm
+            { form = form
             , onFirstName = InputFirstName
+            , onLastName = InputLastName
+            , onEmail = InputEmail
+            , onQueryType = InputQueryType
+            , onMessage = InputMessage
+            , onConsent = InputConsent
             }
         ]
