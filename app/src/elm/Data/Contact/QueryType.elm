@@ -1,6 +1,6 @@
 module Data.Contact.QueryType exposing
     ( Error
-    , QueryType
+    , QueryType(..)
     , fieldType
     , fromString
     , toString

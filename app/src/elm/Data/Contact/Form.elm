@@ -80,7 +80,7 @@ init =
     , lastName = Field.empty (Text.fieldType { min = 1, max = 25 })
     , email = Field.empty Email.fieldType
     , queryType = Field.empty QueryType.fieldType
-    , message = Field.empty (Text.fieldType { min = 1, max = 100 })
+    , message = Field.empty (Text.fieldType { min = 1, max = 300 })
     , consent = Field.empty Field.true
     }
 

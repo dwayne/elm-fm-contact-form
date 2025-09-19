@@ -106,7 +106,7 @@ suite =
                         |> Expect.equal (Err [ Field.blankError ])
             ]
         , describe "message"
-            [ fuzz (Fuzz.intRange 0 150) "it is required and must be less than 100 characters long" <|
+            [ fuzz (Fuzz.intRange 0 350) "it is required and must be less than 300 characters long" <|
                 \n ->
                     let
                         form =
@@ -119,11 +119,11 @@ suite =
                             |> Field.toResult
                             |> Expect.equal (Err [ Field.blankError ])
 
-                    else if n > 100 then
+                    else if n > 300 then
                         form
                             |> Form.get .message
                             |> Field.toResult
-                            |> Expect.equal (Err [ Field.customError (Text.TooLong { actual = n, max = 100 }) ])
+                            |> Expect.equal (Err [ Field.customError (Text.TooLong { actual = n, max = 300 }) ])
 
                     else
                         form

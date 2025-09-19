@@ -1,6 +1,9 @@
-module View.Form exposing (ViewOptions, view)
+module View.Form exposing (view)
 
-import Field exposing (Field)
+import Data.Contact.Form as Contact
+import Data.Contact.QueryType as QueryType
+import Field.Advanced as Field exposing (Field)
+import Form
 import Html as H
 import Html.Attributes as HA
 import View.Button as Button
@@ -12,16 +15,12 @@ import View.QueryType as QueryType
 import View.Textarea as Textarea
 
 
-type alias ViewOptions =
-    { firstName : Field String
-    , lastName : Field String
-    , email : Field String
-    , message : Field String
-    }
-
-
-view : ViewOptions -> H.Html msg
-view { firstName, lastName, email, message } =
+view : Contact.Form -> H.Html msg
+view form =
+    let
+        { firstName, lastName, email, queryType, message, consent } =
+            Form.toState form
+    in
     H.form [ HA.class "form" ]
         [ viewFormSection
             [ H.h1 [ HA.class "form__title" ] [ H.text "Contact Us" ]
@@ -75,17 +74,31 @@ view { firstName, lastName, email, message } =
                     , title = Just { text = "Query Type", isRequired = True }
                     , control =
                         \_ ->
+                            let
+                                maybeValue =
+                                    Field.toMaybe queryType
+                            in
                             QueryType.view
                                 { name = "query-type"
                                 , first =
                                     ( { text = "General Enquiry"
-                                      , radioAttrs = []
+                                      , radioAttrs =
+                                            let
+                                                checked =
+                                                    maybeValue == Just QueryType.General
+                                            in
+                                            [ HA.checked checked ]
                                       }
                                     , []
                                     )
                                 , second =
                                     ( { text = "Support Request"
-                                      , radioAttrs = []
+                                      , radioAttrs =
+                                            let
+                                                checked =
+                                                    maybeValue == Just QueryType.Support
+                                            in
+                                            [ HA.checked checked ]
                                       }
                                     , []
                                     )
@@ -113,7 +126,14 @@ view { firstName, lastName, email, message } =
                         LabelledCheckbox.view
                             { text = "I consent to being contacted by the team"
                             , isRequired = True
-                            , checkboxAttrs = [ HA.id id ]
+                            , checkboxAttrs =
+                                let
+                                    checked =
+                                        Field.toMaybe consent == Just True
+                                in
+                                [ HA.id id
+                                , HA.checked checked
+                                ]
                             }
                             []
                 , errorMessage = Nothing
