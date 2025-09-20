@@ -7,6 +7,7 @@ import Field.Advanced as Field
 import Form
 import Html as H
 import Html.Attributes as HA
+import Lib.Browser.Dom as BD
 import View.Form as Form
 
 
@@ -29,11 +30,11 @@ type alias Model =
     }
 
 
-init : () -> ( Model, Cmd msg )
+init : () -> ( Model, Cmd Msg )
 init _ =
     ( { form = Contact.form
       }
-    , Cmd.none
+    , BD.focus "first-name" FocusedFirstName
     )
 
 
@@ -42,7 +43,8 @@ init _ =
 
 
 type Msg
-    = InputFirstName String
+    = FocusedFirstName
+    | InputFirstName String
     | InputLastName String
     | InputEmail String
     | InputQueryType QueryType
@@ -53,6 +55,11 @@ type Msg
 update : Msg -> Model -> ( Model, Cmd msg )
 update msg model =
     case msg of
+        FocusedFirstName ->
+            ( model
+            , Cmd.none
+            )
+
         InputFirstName s ->
             ( { model | form = Form.modify .firstName (Field.setFromString s) model.form }
             , Cmd.none
