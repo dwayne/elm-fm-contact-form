@@ -9,6 +9,7 @@ import Html as H
 import Html.Attributes as HA
 import Lib.Browser.Dom as BD
 import View.Form as Form
+import View.Toast as Toast
 
 
 main : Program () Model Msg
@@ -27,14 +28,16 @@ main =
 
 type alias Model =
     { form : Contact.Form
+    , maybeOutput : Maybe Contact.Output
     }
 
 
 init : () -> ( Model, Cmd Msg )
 init _ =
     ( { form = Contact.form
+      , maybeOutput = Nothing
       }
-    , BD.focus "first-name" FocusedFirstName
+    , focusFirstName
     )
 
 
@@ -53,7 +56,7 @@ type Msg
     | Submit
 
 
-update : Msg -> Model -> ( Model, Cmd msg )
+update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         FocusedFirstName ->
@@ -92,9 +95,19 @@ update msg model =
             )
 
         Submit ->
-            ( model
-            , Cmd.none
+            ( { model
+                | form = Contact.form
+                , maybeOutput =
+                    Form.validateAsMaybe model.form
+                        |> Debug.log "submission"
+              }
+            , focusFirstName
             )
+
+
+focusFirstName : Cmd Msg
+focusFirstName =
+    BD.focus "first-name" FocusedFirstName
 
 
 
@@ -102,9 +115,14 @@ update msg model =
 
 
 view : Model -> H.Html Msg
-view { form } =
-    H.div []
-        [ Form.view
+view { form, maybeOutput } =
+    H.div [] <|
+        [ if maybeOutput == Nothing then
+            H.text ""
+
+          else
+            Toast.success
+        , Form.view
             { form = form
             , onFirstName = InputFirstName
             , onLastName = InputLastName
