@@ -50,6 +50,7 @@ type Msg
     | InputQueryType QueryType
     | InputMessage String
     | InputConsent Bool
+    | Submit
 
 
 update : Msg -> Model -> ( Model, Cmd msg )
@@ -90,6 +91,11 @@ update msg model =
             , Cmd.none
             )
 
+        Submit ->
+            ( model
+            , Cmd.none
+            )
+
 
 
 -- VIEW
@@ -106,5 +112,6 @@ view { form } =
             , onQueryType = InputQueryType
             , onMessage = InputMessage
             , onConsent = InputConsent
+            , onSubmit = Submit
             }
         ]

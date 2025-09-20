@@ -8,6 +8,7 @@ import Form
 import Html as H
 import Html.Attributes as HA
 import Html.Events as HE
+import Lib.Html.Attributes as HA
 import Lib.Html.Events as HE
 import View.Button as Button
 import View.Field as Field
@@ -26,16 +27,28 @@ type alias ViewOptions msg =
     , onQueryType : QueryType -> msg
     , onMessage : String -> msg
     , onConsent : Bool -> msg
+    , onSubmit : msg
     }
 
 
 view : ViewOptions msg -> H.Html msg
-view { form, onFirstName, onLastName, onEmail, onQueryType, onMessage, onConsent } =
+view { form, onFirstName, onLastName, onEmail, onQueryType, onMessage, onConsent, onSubmit } =
     let
         { firstName, lastName, email, queryType, message, consent } =
             Form.toState form
+
+        isValid =
+            Form.isValid form
+
+        attrs =
+            HA.attrList
+                [ HA.class "form"
+                , HA.novalidate True
+                ]
+                [ ( HE.onSubmit onSubmit, isValid )
+                ]
     in
-    H.form [ HA.class "form" ]
+    H.form attrs
         [ viewFormSection
             [ H.h1 [ HA.class "form__title" ] [ H.text "Contact Us" ]
             , H.div [ HA.class "form__fields" ]
@@ -173,7 +186,7 @@ view { form, onFirstName, onLastName, onEmail, onQueryType, onMessage, onConsent
                 []
             ]
         , viewFormSection
-            [ Button.submit []
+            [ Button.submit [ HA.disabled (not isValid) ]
             ]
         ]
 
