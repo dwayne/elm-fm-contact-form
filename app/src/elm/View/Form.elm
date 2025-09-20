@@ -8,6 +8,7 @@ import Form
 import Html as H
 import Html.Attributes as HA
 import Html.Events as HE
+import Lib.Html.Events as HE
 import View.Button as Button
 import View.Field as Field
 import View.Group as Group
@@ -107,7 +108,7 @@ view { form, onFirstName, onLastName, onEmail, onQueryType, onMessage, onConsent
                                                     maybeValue == Just QueryType.General
                                             in
                                             [ HA.checked checked
-                                            , HE.onClick (onQueryType QueryType.General)
+                                            , HE.onChange (onQueryType QueryType.General)
                                             ]
                                       }
                                     , []
@@ -120,7 +121,7 @@ view { form, onFirstName, onLastName, onEmail, onQueryType, onMessage, onConsent
                                                     maybeValue == Just QueryType.Support
                                             in
                                             [ HA.checked checked
-                                            , HE.onClick (onQueryType QueryType.Support)
+                                            , HE.onChange (onQueryType QueryType.Support)
                                             ]
                                       }
                                     , []
@@ -162,7 +163,7 @@ view { form, onFirstName, onLastName, onEmail, onQueryType, onMessage, onConsent
                                 in
                                 [ HA.id id
                                 , HA.checked checked
-                                , HE.onClick (onConsent <| not checked)
+                                , HE.onChange (onConsent <| not checked)
                                 ]
                             }
                             []
