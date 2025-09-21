@@ -6,7 +6,7 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "^5.13.2",
+    "astro": "^5.13.9",
     "sass-embedded": "^1.90.0"
   }
 }
