@@ -3,6 +3,7 @@
     "elmPackages.elm@latest",
     "elmPackages.elm-format@latest",
     "elmPackages.elm-test@latest",
+    "gnumake@latest",
     "nodejs@22",
     "nushell@latest",
     "pnpm@latest",

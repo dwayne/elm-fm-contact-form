@@ -97,9 +97,10 @@ update msg model =
         Submit ->
             ( { model
                 | form = Contact.form
-                , maybeOutput =
-                    Form.validateAsMaybe model.form
-                        |> Debug.log "submission"
+                , maybeOutput = Form.validateAsMaybe model.form
+                --
+                -- TODO: Display the output on the browser's console.
+                --
               }
             , focusFirstName
             )
