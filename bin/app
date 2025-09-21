@@ -1,9 +1,26 @@
 #!/usr/bin/env nu
 
+def "main build" [] {
+  cd $"($env.project)/app"; pnpm build
+}
+
+def "main clean" [] {
+  cd $"($env.project)/app"
+
+  rm -rf .astro dist elm-stuff node_modules
+}
+
+def "main dev" [] {
+  cd $"($env.project)/app"; pnpm dev
+}
+
+def "main format" [] {
+  cd $"($env.project)/app"; elm-format "src/elm" "tests" --yes
+}
+
 def "main prepare" [] {
   let src = $"($env.project)/workshop/dist"
   let out = $"($env.project)/app/public"
-
 
   # 1. Clean
   let out_css_files = glob $"($out)/index.*.css"
@@ -17,24 +34,12 @@ def "main prepare" [] {
   cp -r $"($src)/fonts" ...$src_css_files $out
 }
 
-def "main format" [] {
-  cd $"($env.project)/app"; elm-format "src/elm" "tests" --yes
+def "main preview" [] {
+  cd $"($env.project)/app"; pnpm preview
 }
 
 def --wrapped "main test" [...args] {
   cd $"($env.project)/app"; elm-test ...$args
-}
-
-def "main dev" [] {
-  cd $"($env.project)/app"; pnpm dev
-}
-
-def "main build" [] {
-  cd $"($env.project)/app"; pnpm build
-}
-
-def "main preview" [] {
-  cd $"($env.project)/app"; pnpm preview
 }
 
 def main [] {}

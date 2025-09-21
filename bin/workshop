@@ -1,11 +1,17 @@
 #!/usr/bin/env nu
 
-def "main dev" [] {
-  cd $"($env.project)/workshop"; pnpm dev
-}
-
 def "main build" [] {
   cd $"($env.project)/workshop"; pnpm build
+}
+
+def "main clean" [] {
+  cd $"($env.project)/workshop"
+
+  rm -rf .astro dist node_modules
+}
+
+def "main dev" [] {
+  cd $"($env.project)/workshop"; pnpm dev
 }
 
 def "main preview" [] {
