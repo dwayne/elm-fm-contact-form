@@ -1,17 +1,20 @@
 #!/usr/bin/env nu
 
 def "main prepare" [] {
-  let app_public = $"($env.project)/app/public/"
+  let src = $"($env.project)/workshop/dist"
+  let out = $"($env.project)/app/public"
 
-  # 1.
-  rsync -a $"($env.project)/workshop/public/" $app_public
 
-  # 2.
+  # 1. Clean
+  let out_css_files = glob $"($out)/index.*.css"
+  rm -rf $"($out)/fonts" ...$out_css_files
+
+  # 2. Build
   STYLE_MODE=app workshop build
 
-  # 3.
-  let css_files = glob $"($env.project)/workshop/dist/_astro/index.*.css"
-  cp ...$css_files $app_public
+  # 3. Copy
+  let src_css_files = glob $"($src)/_astro/index.*.css"
+  cp -r $"($src)/fonts" ...$src_css_files $out
 }
 
 def "main format" [] {
