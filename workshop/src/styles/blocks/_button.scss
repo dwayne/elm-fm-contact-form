@@ -5,7 +5,6 @@
 .button {
   appearance: none;
   border: none;
-  cursor: pointer;
 
   border-radius: spaces.get-space(100);
   padding: spaces.get-space(200) spaces.get-space(500);
@@ -15,12 +14,21 @@
 
   @include typography.body-m-bold;
 
-  &:hover {
-    background:
-      linear-gradient(
-        rgba(0, 0, 0, 50%),
-        rgba(0, 0, 0, 50%)
-      ),
-      colors.get-color("green-600");
+  &:not(:disabled) {
+    cursor: pointer;
+
+    &:hover {
+      background:
+        linear-gradient(
+          rgba(0, 0, 0, 50%),
+          rgba(0, 0, 0, 50%)
+        ),
+        colors.get-color("green-600");
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 }
