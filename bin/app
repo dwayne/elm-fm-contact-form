@@ -10,6 +10,10 @@ def "main clean" [] {
   rm -rf .astro dist elm-stuff node_modules
 }
 
+def "main deploy" [] {
+  deploy $"($env.project)/app/dist" gh-pages
+}
+
 def "main dev" [] {
   cd $"($env.project)/app"; pnpm dev
 }

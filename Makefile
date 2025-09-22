@@ -4,7 +4,7 @@ app_src := $(shell find $(project)/app -name '*.astro' -o -name '*.elm' -o -name
 workshop := $(project)/workshop/dist/index.html
 workshop_src := $(shell find $(project)/workshop -name '*.mjs' -name '*.scss' -o -name '*.ttf')
 
-.PHONY: build prepare clean
+.PHONY: build clean deploy prepare
 
 build: $(app)
 prepare: $(workshop)
@@ -14,6 +14,9 @@ $(app): $(app_src) $(workshop)
 
 $(workshop): $(workshop_src)
 	@app prepare
+
+deploy: build
+	@app deploy
 
 clean:
 	@app clean
