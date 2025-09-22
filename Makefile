@@ -1,24 +1,20 @@
-build   := $(project)/.devbox/.build
-prepare := $(project)/.devbox/.prepare
+app := $(project)/app/dist/index.html
+app_src := $(shell find $(project)/app -name '*.astro' -o -name '*.elm' -o -name '*.json' -o -name '*.mjs')
 
-fonts := $(wildcard $(project)/workshop/public/fonts/*.ttf)
-scss  := $(shell find $(project)/workshop/src/styles -name '*.scss')
-src   := $(shell find $(project)/app -name '*.astro' -o -name '*.elm' -o -name '*.json' -o -name '*.mjs')
+workshop := $(project)/workshop/dist/index.html
+workshop_src := $(shell find $(project)/workshop -name '*.mjs' -name '*.scss' -o -name '*.ttf')
 
 .PHONY: build prepare clean
 
-build: $(build)
-prepare: $(prepare)
+build: $(app)
+prepare: $(workshop)
 
-$(build): $(prepare) $(src)
+$(app): $(app_src) $(workshop)
 	@app build
-	@touch $(build)
 
-$(prepare): $(fonts) $(scss) $(project)/workshop/astro.config.mjs
+$(workshop): $(workshop_src)
 	@app prepare
-	@touch $(prepare)
 
 clean:
 	@app clean
 	@workshop clean
-	@rm -f $(build) $(prepare)
