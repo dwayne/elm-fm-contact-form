@@ -165,6 +165,10 @@
       "last_modified": "2025-08-10T04:38:50Z",
       "resolved": "github:NixOS/nixpkgs/641d909c4a7538f1539da9240dedb1755c907e40?lastModified=1754800730&narHash=sha256-HfVZCXic9XLBgybP0318ym3cDnGwBs%2F%2BH5MgxFVYF4I%3D"
     },
+    "github:dwayne/deploy": {
+      "last_modified": "2025-09-22T09:30:47Z",
+      "resolved": "github:dwayne/deploy/ef65dec63f6f7074afcf51983cb197ab3414b360?lastModified=1758533447&narHash=sha256-ZMjOXBOriHh19snsqwJjPblJGOZvkCw1q3dhlWCaEXI%3D"
+    },
     "gnumake@latest": {
       "last_modified": "2025-08-09T03:53:37Z",
       "resolved": "github:NixOS/nixpkgs/00b574b1ba8a352f0601c4dde4faff4b534ebb1e#gnumake",
