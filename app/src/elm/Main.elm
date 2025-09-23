@@ -98,6 +98,7 @@ update msg model =
             ( { model
                 | form = Contact.form
                 , maybeOutput = Form.validateAsMaybe model.form
+
                 --
                 -- TODO: Display the output on the browser's console.
                 --
