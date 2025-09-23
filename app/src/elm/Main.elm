@@ -65,32 +65,50 @@ update msg model =
             )
 
         InputFirstName s ->
-            ( { model | form = Form.modify .firstName (Field.setFromString s) model.form }
+            ( { model
+                | form = Form.modify .firstName (Field.setFromString s) model.form
+                , maybeOutput = Nothing
+              }
             , Cmd.none
             )
 
         InputLastName s ->
-            ( { model | form = Form.modify .lastName (Field.setFromString s) model.form }
+            ( { model
+                | form = Form.modify .lastName (Field.setFromString s) model.form
+                , maybeOutput = Nothing
+              }
             , Cmd.none
             )
 
         InputEmail s ->
-            ( { model | form = Form.modify .email (Field.setFromString s) model.form }
+            ( { model
+                | form = Form.modify .email (Field.setFromString s) model.form
+                , maybeOutput = Nothing
+              }
             , Cmd.none
             )
 
         InputQueryType q ->
-            ( { model | form = Form.modify .queryType (Field.setFromValue q) model.form }
+            ( { model
+                | form = Form.modify .queryType (Field.setFromValue q) model.form
+                , maybeOutput = Nothing
+              }
             , Cmd.none
             )
 
         InputMessage s ->
-            ( { model | form = Form.modify .message (Field.setFromString s) model.form }
+            ( { model
+                | form = Form.modify .message (Field.setFromString s) model.form
+                , maybeOutput = Nothing
+              }
             , Cmd.none
             )
 
         InputConsent b ->
-            ( { model | form = Form.modify .consent (Field.setFromValue b) model.form }
+            ( { model
+                | form = Form.modify .consent (Field.setFromValue b) model.form
+                , maybeOutput = Nothing
+              }
             , Cmd.none
             )
 
