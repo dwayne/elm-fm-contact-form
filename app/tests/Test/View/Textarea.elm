@@ -22,6 +22,6 @@ suite =
                         , Sel.exactClassName "textarea"
                         , Sel.attribute (HA.attribute "data-state" "clean")
                         , Sel.attribute (HA.attribute "data-validity" "valid")
-                        , Sel.exactText "A message."
+                        , Sel.attribute (HA.attribute "value" "A message.")
                         ]
         ]
