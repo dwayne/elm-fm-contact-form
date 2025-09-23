@@ -16,12 +16,13 @@ view field attrs =
             ]
         , postAttrs =
             let
-                { data } =
+                { value, data } =
                     F.toAttrs field
             in
-            [ data.state
+            [ value
+            , data.state
             , data.validity
             ]
         }
         attrs
-        [ H.text (F.toRawString field) ]
+        []
