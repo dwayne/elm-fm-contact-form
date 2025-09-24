@@ -1,6 +1,6 @@
 {
   "packages": [
-    "github:dwayne/deploy",
+    "github:dwayne/deploy/e6b015c6ce926275db378e6370429f60e649fc9d",
     "elmPackages.elm@latest",
     "elmPackages.elm-format@latest",
     "elmPackages.elm-test@latest",
