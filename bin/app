@@ -10,8 +10,8 @@ def "main clean" [] {
   rm -rf .astro dist elm-stuff node_modules
 }
 
-def "main deploy" [] {
-  deploy $"($env.project)/app/dist" gh-pages
+def --wrapped "main deploy" [...args] {
+  deploy ...$args $"($env.project)/app/dist" gh-pages
 }
 
 def "main dev" [] {
