@@ -17,8 +17,8 @@
   },
   "shell": {
     "init_hook": [
-      "[[ ! -d $project/app/node_modules ]] && cd $project/app && pnpm install --silent",
-      "[[ ! -d $project/workshop/node_modules ]] && cd $project/workshop && pnpm install --silent",
+      "if [ ! -d $project/app/node_modules ]; then cd $project/app && pnpm install --silent; fi",
+      "if [ ! -d $project/workshop/node_modules ]; then cd $project/workshop && pnpm install --silent; fi",
       "alias d='app dev'",
       "alias f='app format'",
       "alias b='app build'",
