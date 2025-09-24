@@ -15,11 +15,30 @@ import AppCSS from '@/partials/AppCSS.astro';
   <body class="body" data-variant="app">
     <div id="main"></div>
     <script>
-      import { Elm } from "@/elm/Main.elm";
+      import { Elm } from '@/elm/Main.elm';
 
-      Elm.Main.init({
-        node: document.getElementById("main")
+      const app = Elm.Main.init({
+        node: document.getElementById('main')
       });
+
+      app.ports.send.subscribe(message => {
+        switch (message?.tag) {
+          case 'output':
+            console.log(message.value);
+            window.alert(`First name: ${message.value.firstName}
+Last name: ${message.value.lastName}
+Email: ${message.value.email}
+Query type: ${capitalize(message.value.queryType)}
+Message: ${message.value.message}`);
+            break;
+          default:
+            console.log('Unknown message', message);
+        }
+      });
+
+      function capitalize(s) {
+        return String(s).charAt(0).toUpperCase() + String(s).slice(1);
+      }
     </script>
   </body>
 </html>

@@ -8,6 +8,7 @@ import Form
 import Html as H
 import Html.Attributes as HA
 import Lib.Browser.Dom as BD
+import Port
 import View.Form as Form
 import View.Toast as Toast
 
@@ -113,16 +114,23 @@ update msg model =
             )
 
         Submit ->
-            ( { model
-                | form = Contact.form
-                , maybeOutput = Form.validateAsMaybe model.form
+            let
+                maybeOutput =
+                    Form.validateAsMaybe model.form
+            in
+            case maybeOutput of
+                Just output ->
+                    ( { model | form = Contact.form, maybeOutput = maybeOutput }
+                    , Cmd.batch
+                        [ focusFirstName
+                        , Port.sendOutput output
+                        ]
+                    )
 
-                --
-                -- TODO: Display the output on the browser's console.
-                --
-              }
-            , focusFirstName
-            )
+                Nothing ->
+                    ( model
+                    , Cmd.none
+                    )
 
 
 focusFirstName : Cmd Msg
