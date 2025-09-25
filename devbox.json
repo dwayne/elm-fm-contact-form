@@ -7,8 +7,7 @@
     "gnumake@latest",
     "nodejs@22",
     "nushell@latest",
-    "pnpm@latest",
-    "rsync@latest"
+    "pnpm@latest"
   ],
   "env": {
     "ASTRO_BASE": "/elm-fm-contact-form/",
@@ -17,16 +16,16 @@
   },
   "shell": {
     "init_hook": [
-      "if [ ! -d $project/app/node_modules ]; then cd $project/app && pnpm install --silent; fi",
       "if [ ! -d $project/workshop/node_modules ]; then cd $project/workshop && pnpm install --silent; fi",
-      "alias d='app dev'",
-      "alias f='app format'",
-      "alias b='app build'",
-      "alias p='app preview'",
-      "alias t='app test'",
+      "if [ ! -d $project/app/node_modules ]; then cd $project/app && pnpm install --silent; fi",
       "alias wd='workshop dev'",
       "alias wb='workshop build'",
-      "alias wp='workshop preview'"
+      "alias wp='workshop preview'",
+      "alias d='app dev'",
+      "alias b='app build'",
+      "alias p='app preview'",
+      "alias f='app format'",
+      "alias t='app test'",
     ]
   }
 }

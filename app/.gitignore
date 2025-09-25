@@ -1,4 +1,4 @@
-.astro/
-dist/
-elm-stuff/
-node_modules/
+/.astro
+/dist
+/elm-stuff
+/node_modules

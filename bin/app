@@ -1,27 +1,6 @@
 #!/usr/bin/env nu
 
-def "main build" [] {
-  cd $"($env.project)/app"; pnpm build
-}
-
-def "main clean" [] {
-  cd $"($env.project)/app"
-
-  rm -rf .astro dist elm-stuff node_modules
-}
-
-def --wrapped "main deploy" [...args] {
-  deploy ...$args $"($env.project)/app/dist" gh-pages
-}
-
-def "main dev" [] {
-  cd $"($env.project)/app"; pnpm dev
-}
-
-def "main format" [] {
-  cd $"($env.project)/app"; elm-format "src/elm" "tests" --yes
-}
-
+# Share the workshop files with the web app
 def "main prepare" [] {
   let src = $"($env.project)/workshop/dist"
   let out = $"($env.project)/app/public"
@@ -38,12 +17,41 @@ def "main prepare" [] {
   cp -r $"($src)/fonts" ...$src_css_files $out
 }
 
+# Start the development server
+def "main dev" [] {
+  cd $"($env.project)/app"; pnpm dev
+}
+
+# Build the project and write it to disk
+def "main build" [] {
+  cd $"($env.project)/app"; pnpm build
+}
+
+# Preview the build locally
 def "main preview" [] {
   cd $"($env.project)/app"; pnpm preview
 }
 
+# Format the files
+def "main format" [] {
+  cd $"($env.project)/app"; elm-format "src/elm" "tests" --yes
+}
+
+# Run the tests
 def --wrapped "main test" [...args] {
   cd $"($env.project)/app"; elm-test ...$args
+}
+
+# Deploy the web app to GitHub Pages
+def --wrapped "main deploy" [...args] {
+  deploy ...$args $"($env.project)/app/dist" gh-pages
+}
+
+# Remove development and build artifacts
+def "main clean" [] {
+  cd $"($env.project)/app"
+
+  rm -rf .astro dist elm-stuff node_modules
 }
 
 def main [] {}
